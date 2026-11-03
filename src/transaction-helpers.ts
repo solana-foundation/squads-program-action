@@ -1,60 +1,91 @@
 import {
-  AddressLookupTableAccount,
-  Commitment,
-  ComputeBudgetProgram,
-  Connection,
-  Keypair,
-  PublicKey,
-  SignatureStatus,
-  Transaction,
-  TransactionInstruction,
-  TransactionMessage,
-  VersionedTransaction
-} from '@solana/web3.js'
+  type Address,
+  type Base64EncodedWireTransaction,
+  type Commitment,
+  type Instruction,
+  type KeyPairSigner,
+  type Signature,
+  getBase64Decoder
+} from '@solana/kit'
+import {
+  COMPUTE_BUDGET_PROGRAM_ADDRESS,
+  getSetComputeUnitLimitInstruction,
+  getSetComputeUnitPriceInstruction
+} from '@solana-program/compute-budget'
+import {
+  compileMessage,
+  serializeTransaction,
+  signTransaction
+} from './compile.js'
+import type { SolanaRpc } from './rpc.js'
+
+/**
+ * A legacy transaction under construction: the instructions plus an optional
+ * blockhash and fee payer (defaulting to the first signer).
+ */
+export type PendingTransaction = {
+  instructions: Instruction[]
+  recentBlockhash?: string
+  feePayer?: Address
+}
+
+type SignatureStatus = NonNullable<
+  Awaited<
+    ReturnType<ReturnType<SolanaRpc['getSignatureStatuses']>['send']>
+  >['value'][number]
+>
+
+const toBase64 = (bytes: Uint8Array) =>
+  getBase64Decoder().decode(bytes) as Base64EncodedWireTransaction
 
 // Was getSimulationUnits
 // Credit https://twitter.com/stegabob, originally from
 // https://x.com/stegaBOB/status/1766662289392889920
 export const getSimulationComputeUnits = async (
-  connection: Connection,
-  instructions: Array<TransactionInstruction>,
-  payer: PublicKey,
-  lookupTables: Array<AddressLookupTableAccount> | [],
+  rpc: SolanaRpc,
+  instructions: Array<Instruction>,
+  payer: Address,
   commitment: Commitment = 'confirmed'
 ): Promise<number | null> => {
   const testInstructions = [
     // Set an arbitrarily high number in simulation
     // so we can be sure the transaction will succeed
     // and get the real compute units used
-    ComputeBudgetProgram.setComputeUnitLimit({ units: 1_400_000 }),
+    getSetComputeUnitLimitInstruction({ units: 1_400_000 }),
     ...instructions
   ]
 
-  const testTransaction = new VersionedTransaction(
-    new TransactionMessage({
-      instructions: testInstructions,
-      payerKey: payer,
+  const testTransaction = serializeTransaction(
+    compileMessage(
+      0,
+      payer,
       // RecentBlockhash can by any public key during simulation
       // since 'replaceRecentBlockhash' is set to 'true' below
-      recentBlockhash: PublicKey.default.toString()
-    }).compileToV0Message(lookupTables)
+      '11111111111111111111111111111111',
+      testInstructions
+    )
   )
 
-  const rpcResponse = await connection.simulateTransaction(testTransaction, {
-    replaceRecentBlockhash: true,
-    sigVerify: false,
-    commitment
-  })
+  const rpcResponse = await rpc
+    .simulateTransaction(toBase64(testTransaction), {
+      encoding: 'base64',
+      replaceRecentBlockhash: true,
+      sigVerify: false,
+      commitment
+    })
+    .send()
 
   if (rpcResponse?.value?.err) {
     const logs = rpcResponse.value.logs?.join('\n  • ') || 'No logs available'
     throw new Error(
       `Transaction simulation failed:\n  •${logs}` +
-        JSON.stringify(rpcResponse?.value?.err)
+        JSON.stringify(rpcResponse?.value?.err, (_, v) =>
+          typeof v === 'bigint' ? v.toString() : v
+        )
     )
   }
 
-  return rpcResponse.value.unitsConsumed || null
+  return Number(rpcResponse.value.unitsConsumed) || null
 }
 
 /**
@@ -118,7 +149,7 @@ export const DEFAULT_SEND_OPTIONS: Required<
 /**
  * Sends a transaction with automatic retries and status updates
  *
- * @param connection - The Solana connection object
+ * @param rpc - The Solana RPC client
  * @param transaction - The transaction to send
  * @param signers - Array of signers needed for the transaction
  * @param options - Optional configuration for the retry mechanism
@@ -143,24 +174,11 @@ export const DEFAULT_SEND_OPTIONS: Required<
  * - "confirmed": Transaction is confirmed or finalized
  *
  * @throws Error if the transaction fails after all retry attempts
- *
- * @example
- * ```typescript
- * const signature = await sendTransactionWithRetry(
- *   connection,
- *   transaction,
- *   signers,
- *   {
- *     onStatusUpdate: (status) => console.log(status),
- *     commitment: "confirmed"
- *   }
- * );
- * ```
  */
 async function sendTransactionWithRetry(
-  connection: Connection,
-  transaction: Transaction,
-  signers: Keypair[],
+  rpc: SolanaRpc,
+  transaction: PendingTransaction,
+  signers: KeyPairSigner[],
   {
     maxRetries = DEFAULT_SEND_OPTIONS.maxRetries,
     initialDelayMs = DEFAULT_SEND_OPTIONS.initialDelayMs,
@@ -171,26 +189,34 @@ async function sendTransactionWithRetry(
 ): Promise<string> {
   onStatusUpdate?.({ status: 'created' })
 
-  // Sign the transaction
-  if (signers.length > 0) {
-    transaction.sign(...signers)
-  }
-
   if (transaction.recentBlockhash === undefined) {
     console.log('No blockhash provided. Setting recent blockhash')
-    const { blockhash } = await connection.getLatestBlockhash(commitment)
-    transaction.recentBlockhash = blockhash
+    const { value } = await rpc.getLatestBlockhash({ commitment }).send()
+    transaction.recentBlockhash = value.blockhash
   }
   if (transaction.feePayer === undefined) {
     if (signers.length === 0) {
       throw new Error('No signers or fee payer provided')
     }
-    transaction.feePayer = signers[0].publicKey
+    transaction.feePayer = signers[0].address
   }
+
+  // Sign the transaction
+  const wireTransaction = toBase64(
+    await signTransaction(
+      compileMessage(
+        'legacy',
+        transaction.feePayer,
+        transaction.recentBlockhash,
+        transaction.instructions
+      ),
+      signers
+    )
+  )
 
   onStatusUpdate?.({ status: 'signed' })
 
-  let signature: string | null = null
+  let signature: Signature | null = null
   let status: SignatureStatus | null = null
   let retries = 0
   // Setting a minimum to decrease spam and for the confirmation to work
@@ -201,11 +227,15 @@ async function sendTransactionWithRetry(
       const isFirstSend = signature === null
 
       // Send transaction if not sent yet
-      signature = await connection.sendRawTransaction(transaction.serialize(), {
-        skipPreflight,
-        preflightCommitment: commitment,
-        maxRetries: 0
-      })
+      signature = await rpc
+        .sendTransaction(wireTransaction, {
+          encoding: 'base64',
+          skipPreflight,
+          // Preflight commitment is irrelevant when preflight is skipped
+          preflightCommitment: skipPreflight ? 'processed' : commitment,
+          maxRetries: 0n
+        })
+        .send()
 
       if (isFirstSend) {
         onStatusUpdate?.({ status: 'sent', signature })
@@ -216,9 +246,9 @@ async function sendTransactionWithRetry(
       const timeBetweenPolls = 500
       while (pollTimeout > 0) {
         await new Promise((resolve) => setTimeout(resolve, timeBetweenPolls))
-        const response = await connection.getSignatureStatus(signature)
-        if (response?.value) {
-          status = response.value
+        const response = await rpc.getSignatureStatuses([signature]).send()
+        if (response?.value?.[0]) {
+          status = response.value[0]
           if (
             status.confirmationStatus === 'confirmed' ||
             status.confirmationStatus === 'finalized'
@@ -251,9 +281,9 @@ async function sendTransactionWithRetry(
 /**
  * Prepares a transaction by adding compute budget instructions
  *
- * @param connection - The Solana connection object
+ * @param rpc - The Solana RPC client
  * @param tx - The transaction to prepare
- * @param payer - The public key of the transaction payer
+ * @param payer - The address of the transaction payer
  * @param priorityFee - Priority fee in microLamports (default: 10000 which is the minimum required for helius to see a transaction as priority)
  * @param computeUnitBuffer - Optional buffer to add to simulated compute units
  *
@@ -276,38 +306,25 @@ async function sendTransactionWithRetry(
  * - Quicknode: https://www.quicknode.com/docs/solana/qn_estimatePriorityFees
  *
  * @throws If the transaction simulation fails
- *
- * @example
- * ```typescript
- * // Add 10% buffer plus 1000 fixed compute units
- * await prepareTransactionWithCompute(
- *   connection,
- *   transaction,
- *   payer.publicKey,
- *   1000,
- *   { multiplier: 1.1, fixed: 1000 }
- * );
- * ```
  */
 export async function prepareTransactionWithCompute(
-  connection: Connection,
-  tx: Transaction,
-  payer: PublicKey,
+  rpc: SolanaRpc,
+  tx: PendingTransaction,
+  payer: Address,
   priorityFee: number = 10000,
   computeUnitBuffer: ComputeUnitBuffer = {},
   commitment: Commitment = 'confirmed'
 ): Promise<void> {
-  tx.add(
-    ComputeBudgetProgram.setComputeUnitPrice({
+  tx.instructions.push(
+    getSetComputeUnitPriceInstruction({
       microLamports: priorityFee
     })
   )
 
   const simulatedCompute = await getSimulationComputeUnits(
-    connection,
+    rpc,
     tx.instructions,
     payer,
-    [],
     commitment
   )
 
@@ -330,8 +347,8 @@ export async function prepareTransactionWithCompute(
 
   console.log('Final compute units (with buffer)', finalComputeUnits)
 
-  tx.add(
-    ComputeBudgetProgram.setComputeUnitLimit({
+  tx.instructions.push(
+    getSetComputeUnitLimitInstruction({
       units: finalComputeUnits
     })
   )
@@ -340,7 +357,7 @@ export async function prepareTransactionWithCompute(
 /**
  * Sends a transaction with compute unit optimization and automatic retries
  *
- * @param connection - The Solana connection object
+ * @param rpc - The Solana RPC client
  * @param transaction - The transaction to send
  * @param signers - Array of signers needed for the transaction
  * @param priorityFee - Priority fee in microLamports (default: 10000 which is the minimum required for helius to see a transaction as priority)
@@ -350,8 +367,8 @@ export async function prepareTransactionWithCompute(
  * @example
  * ```typescript
  * const signature = await sendTransaction(
- *   connection,
- *   transaction,
+ *   rpc,
+ *   { instructions },
  *   [payer],
  *   10000,
  *   {
@@ -362,9 +379,9 @@ export async function prepareTransactionWithCompute(
  * ```
  */
 export async function sendTransaction(
-  connection: Connection,
-  transaction: Transaction,
-  signers: Keypair[],
+  rpc: SolanaRpc,
+  transaction: PendingTransaction,
+  signers: KeyPairSigner[],
   priorityFee: number = 10000,
   options: SendTransactionOptions & {
     computeUnitBuffer?: ComputeUnitBuffer
@@ -381,40 +398,32 @@ export async function sendTransaction(
 
   if (transaction.recentBlockhash === undefined) {
     console.log('No blockhash provided. Setting recent blockhash')
-    const { blockhash } = await connection.getLatestBlockhash(commitment)
-    transaction.recentBlockhash = blockhash
+    const { value } = await rpc.getLatestBlockhash({ commitment }).send()
+    transaction.recentBlockhash = value.blockhash
   }
   if (transaction.feePayer === undefined) {
     if (signers.length === 0) {
       throw new Error('No signers or fee payer provided')
     }
-    transaction.feePayer = signers[0].publicKey
+    transaction.feePayer = signers[0].address
   }
 
-  // Skip compute preparation if transaction is already signed or has compute instructions
-  if (transaction.signatures.length > 0) {
-    console.log('Transaction already signed, skipping compute preparation')
-    return sendTransactionWithRetry(connection, transaction, signers, {
-      commitment,
-      ...sendOptions
-    })
-  }
-
-  const hasComputeInstructions = transaction.instructions.some((ix) =>
-    ix.programId.equals(ComputeBudgetProgram.programId)
+  // Skip compute preparation if transaction already has compute instructions
+  const hasComputeInstructions = transaction.instructions.some(
+    (ix) => ix.programAddress === COMPUTE_BUDGET_PROGRAM_ADDRESS
   )
 
   if (hasComputeInstructions) {
     console.log(
       'Transaction already has compute instructions, skipping compute preparation'
     )
-    return sendTransactionWithRetry(connection, transaction, signers, {
+    return sendTransactionWithRetry(rpc, transaction, signers, {
       commitment,
       ...sendOptions
     })
   }
   await prepareTransactionWithCompute(
-    connection,
+    rpc,
     transaction,
     transaction.feePayer,
     priorityFee,
@@ -422,7 +431,7 @@ export async function sendTransaction(
     commitment
   )
 
-  return sendTransactionWithRetry(connection, transaction, signers, {
+  return sendTransactionWithRetry(rpc, transaction, signers, {
     commitment,
     ...sendOptions
   })

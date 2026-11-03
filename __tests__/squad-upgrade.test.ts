@@ -1,33 +1,47 @@
 import { describe, expect, it } from '@jest/globals'
+import { randomBytes } from 'node:crypto'
 import {
-  Keypair,
-  SystemProgram,
-  Transaction,
-  TransactionInstruction
-} from '@solana/web3.js'
+  type Address,
+  type Instruction,
+  AccountRole,
+  createNoopSigner,
+  getCompiledTransactionMessageDecoder,
+  getTransactionDecoder
+} from '@solana/kit'
+import {
+  getTransferSolInstruction,
+  SYSTEM_PROGRAM_ADDRESS
+} from '@solana-program/system'
 import bs58 from 'bs58'
+import { compileMessage, serializeTransaction } from '../src/compile.js'
 import {
   buildExportTransaction,
   parseVerificationTransaction
 } from '../src/squad-upgrade.js'
 
-function createWireTransaction(): Buffer {
-  const payer = Keypair.generate().publicKey
-  const transaction = new Transaction({
-    feePayer: payer,
-    recentBlockhash: Keypair.generate().publicKey.toBase58()
-  }).add(
-    SystemProgram.transfer({
-      fromPubkey: payer,
-      toPubkey: Keypair.generate().publicKey,
-      lamports: 1
-    })
-  )
+const randomAddress = () => bs58.encode(randomBytes(32)) as Address
 
-  return transaction.serialize({
-    requireAllSignatures: false,
-    verifySignatures: false
+const transfer = (from: Address): Instruction =>
+  getTransferSolInstruction({
+    source: createNoopSigner(from),
+    destination: randomAddress(),
+    amount: 1n
   })
+
+function createWireTransaction(): Buffer {
+  const payer = randomAddress()
+  return Buffer.from(
+    serializeTransaction(
+      compileMessage('legacy', payer, randomAddress(), [transfer(payer)])
+    )
+  )
+}
+
+function decodeLegacyTransaction(wire: Buffer) {
+  const { messageBytes } = getTransactionDecoder().decode(wire)
+  const message = getCompiledTransactionMessageDecoder().decode(messageBytes)
+  if (message.version !== 'legacy') throw new Error('expected legacy message')
+  return message
 }
 
 describe('parseVerificationTransaction', () => {
@@ -40,8 +54,8 @@ describe('parseVerificationTransaction', () => {
     const transaction = await parseVerificationTransaction(encoded)
 
     expect(transaction.instructions).toHaveLength(1)
-    expect(transaction.instructions[0].programId).toEqual(
-      SystemProgram.programId
+    expect(transaction.instructions[0].programAddress).toEqual(
+      SYSTEM_PROGRAM_ADDRESS
     )
   })
 
@@ -55,17 +69,11 @@ describe('parseVerificationTransaction', () => {
 })
 
 describe('buildExportTransaction', () => {
-  const feePayer = Keypair.generate().publicKey
-  const recentBlockhash = Keypair.generate().publicKey.toBase58()
+  const feePayer = randomAddress()
+  const recentBlockhash = randomAddress()
 
-  function createInstructions(count: number): TransactionInstruction[] {
-    return Array.from({ length: count }, () =>
-      SystemProgram.transfer({
-        fromPubkey: feePayer,
-        toPubkey: Keypair.generate().publicKey,
-        lamports: 1
-      })
-    )
+  function createInstructions(count: number): Instruction[] {
+    return Array.from({ length: count }, () => transfer(feePayer))
   }
 
   it.each([
@@ -83,13 +91,15 @@ describe('buildExportTransaction', () => {
         encoding as 'base58' | 'base64'
       )
 
-      const transaction = Transaction.from(decode(encoded))
-      expect(transaction.instructions).toHaveLength(3)
-      expect(transaction.feePayer).toEqual(feePayer)
-      expect(transaction.recentBlockhash).toEqual(recentBlockhash)
+      const message = decodeLegacyTransaction(decode(encoded))
+      expect(message.instructions).toHaveLength(3)
+      expect(message.staticAccounts[0]).toEqual(feePayer)
+      expect(message.lifetimeToken).toEqual(recentBlockhash)
       expect(
-        transaction.instructions.every((ix) =>
-          ix.programId.equals(SystemProgram.programId)
+        message.instructions.every(
+          (ix) =>
+            message.staticAccounts[ix.programAddressIndex] ===
+            SYSTEM_PROGRAM_ADDRESS
         )
       ).toBe(true)
     }
@@ -102,16 +112,16 @@ describe('buildExportTransaction', () => {
       recentBlockhash
     )
 
-    const transaction = Transaction.from(Buffer.from(bs58.decode(encoded)))
-    expect(transaction.instructions).toHaveLength(1)
+    const message = decodeLegacyTransaction(Buffer.from(bs58.decode(encoded)))
+    expect(message.instructions).toHaveLength(1)
   })
 
   it('rejects transactions above the size limit with a useful error', () => {
-    const oversized = new TransactionInstruction({
-      programId: SystemProgram.programId,
-      keys: [{ pubkey: feePayer, isSigner: false, isWritable: true }],
-      data: Buffer.alloc(1300)
-    })
+    const oversized: Instruction = {
+      programAddress: SYSTEM_PROGRAM_ADDRESS,
+      accounts: [{ address: feePayer, role: AccountRole.WRITABLE }],
+      data: new Uint8Array(1300)
+    }
 
     expect(() =>
       buildExportTransaction([oversized], feePayer, recentBlockhash)

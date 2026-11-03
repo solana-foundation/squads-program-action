@@ -27,7 +27,13 @@ export default [
   //   ...typescript,
   // },
   {
-    ignores: ['**/coverage', '**/dist', '**/linter', '**/node_modules']
+    ignores: [
+      '**/coverage',
+      '**/dist',
+      '**/linter',
+      '**/node_modules',
+      'src/generated'
+    ]
   },
   ...compat.extends(
     'eslint:recommended',
