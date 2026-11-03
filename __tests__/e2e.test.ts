@@ -18,6 +18,7 @@ import {
 } from '@solana-program/program-metadata'
 import {
   type FakeAccount,
+  type FakeRpcFaults,
   type RecordedRequest,
   rentExemptLamports,
   startFakeRpc
@@ -80,7 +81,15 @@ type Scenario = {
     exportEncoding?: 'base58' | 'base64'
     keypair?: string
     multisig?: string
+    program?: string
+    priorityFee?: number
   }
+  // Accounts to leave out of the fake ledger
+  omitAccounts?: string[]
+  faults?: FakeRpcFaults
+  // The error message intentionally differs from the web3.js implementation;
+  // everything else (RPC requests, logged errors) must still match.
+  changedError?: string
   // Size of the program-metadata data in METADATA_BUFFER (excluding header)
   metadataBufferData?: number
   // State of the canonical metadata PDA before the upgrade
@@ -183,7 +192,98 @@ const scenarios: Scenario[] = [
   },
   {
     name: 'error: multisig account not owned by Squads',
-    input: { multisig: PROGRAM }
+    input: { multisig: PROGRAM },
+    // web3.js + @sqds/multisig decoded the program account as a multisig and
+    // failed with "Expected \u0002... to hold a COption".
+    changedError: `Account ${PROGRAM} is not owned by the Squads program (${BPF_LOADER})`
+  },
+  {
+    name: 'create vault transaction: vault 255, priority fee 1',
+    input: { vaultIndex: 255, priorityFee: 1 }
+  },
+  {
+    name: 'create vault transaction: new metadata account, needs extends',
+    input: { metadataBuffer: METADATA_BUFFER },
+    metadataBufferData: 25_000
+  },
+  {
+    name: 'export: PDA verification given as base58',
+    input: {
+      exportOnly: true,
+      pdaTx: bs58.encode(Buffer.from(PDA_TX, 'base64'))
+    }
+  },
+  {
+    name: 'create vault transaction: send fails once, then succeeds',
+    input: {},
+    faults: { failFirst: { sendTransaction: 1 } }
+  },
+  {
+    name: 'create vault transaction: confirmed after 3 polls',
+    input: {},
+    faults: { pendingStatusPolls: 3 }
+  },
+  {
+    name: 'create vault transaction: not confirmed in time, sent again',
+    input: {},
+    faults: { pendingStatusPolls: 5 }
+  },
+  {
+    name: 'error: simulation fails',
+    input: {},
+    faults: { simulationError: { InstructionError: [1, { Custom: 6001 }] } }
+  },
+  {
+    name: 'export: program account fetch fails twice, then succeeds',
+    input: { exportOnly: true },
+    faults: { failFirst: { getAccountInfo: 2 } }
+  },
+  {
+    name: 'error: program account fetch keeps failing',
+    input: { exportOnly: true },
+    faults: { failFirst: { getAccountInfo: 5 } },
+    // Same failure point; the wording comes from kit instead of web3.js.
+    changedError:
+      `Failed to get account info for ${PROGRAM} after 5 attempts: ` +
+      'SolanaError: JSON-RPC error: The method does not exist / is not ' +
+      'available (Injected failure #5 for getAccountInfo)'
+  },
+  {
+    name: 'error: program account missing',
+    input: { exportOnly: true },
+    omitAccounts: [PROGRAM]
+  },
+  {
+    name: 'error: metadata buffer account missing',
+    input: { exportOnly: true, metadataBuffer: METADATA_BUFFER }
+  },
+  {
+    name: 'error: multisig account missing',
+    input: { multisig: addr(77) }
+  },
+  {
+    name: 'error: invalid keypair',
+    input: { keypair: '[1,2,3]' },
+    // Same failure point; the wording comes from kit instead of web3.js.
+    changedError: 'Key pair bytes must be of length 64, got 3.'
+  },
+  {
+    name: 'error: invalid program address',
+    input: { exportOnly: true, program: 'not-a-valid-address' },
+    // Same failure point; the wording comes from kit instead of web3.js.
+    changedError:
+      'Expected base58-encoded address string of length in the range ' +
+      '[32, 44]. Actual length: 19.'
+  },
+  {
+    name: 'error: invalid PDA verification transaction',
+    input: { exportOnly: true, pdaTx: 'not a transaction' },
+    // Same failure point; the wording comes from kit instead of web3.js.
+    changedError:
+      'Unable to decode PDA verification transaction as base64 or base58. ' +
+      'Base64 error: This version of Kit does not support decoding ' +
+      'transactions with version 30. The current max supported version is ' +
+      '1.. Base58 error: Non-base58 character.'
   }
 ]
 
@@ -236,23 +336,30 @@ async function accountsFor(s: Scenario) {
             data: Buffer.alloc(METADATA_HEADER + s.metadataPda.dataLength, 3)
           }
   }
+  for (const omitted of s.omitAccounts ?? []) delete accounts[omitted]
   return accounts
 }
 
 async function run(s: Scenario) {
-  const rpc = await startFakeRpc(await accountsFor(s))
+  const rpc = await startFakeRpc(await accountsFor(s), s.faults)
+  const errorLog: string[] = []
+  jest.mocked(console.error).mockImplementation((...args: unknown[]) => {
+    errorLog.push(
+      args.map((a) => (a instanceof Error ? a.message : String(a))).join(' ')
+    )
+  })
   let result: { output?: string; error?: string }
   try {
     const output = await main({
       rpc: rpc.url,
-      program: PROGRAM,
+      program: s.input.program ?? PROGRAM,
       buffer: BUFFER,
       idlBuffer: s.input.idlBuffer ?? '',
       metadataBuffer: s.input.metadataBuffer ?? '',
       multisig: s.input.multisig ?? MULTISIG,
       keypair: s.input.keypair ?? KEYPAIR,
       vaultIndex: s.input.vaultIndex ?? 0,
-      priorityFee: 100_000,
+      priorityFee: s.input.priorityFee ?? 100_000,
       pdaTx: s.input.pdaTx ?? '',
       exportOnly: s.input.exportOnly ?? false,
       exportEncoding: s.input.exportEncoding ?? 'base58'
@@ -263,7 +370,11 @@ async function run(s: Scenario) {
   } finally {
     await rpc.close()
   }
-  return { ...result, requests: rpc.requests.map(withoutEmptyConfig) }
+  return {
+    ...result,
+    errorLog,
+    requests: rpc.requests.map(withoutEmptyConfig)
+  }
 }
 
 // An empty trailing config object (`[{}]`) is the same request as no config
@@ -305,8 +416,13 @@ describe('main() end to end', () => {
     '%s',
     async (name, s) => {
       recorded[name] = await run(s)
-      expect(recorded[name]).toEqual(UPDATE ? recorded[name] : golden[name])
+      const expected = UPDATE
+        ? recorded[name]
+        : s.changedError
+          ? { ...(golden[name] as object), error: s.changedError }
+          : golden[name]
+      expect(recorded[name]).toEqual(expected)
     },
-    20_000
+    30_000
   )
 })

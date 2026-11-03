@@ -79,8 +79,9 @@ export const getSimulationComputeUnits = async (
     const logs = rpcResponse.value.logs?.join('\n  • ') || 'No logs available'
     throw new Error(
       `Transaction simulation failed:\n  •${logs}` +
+        // Kit returns the error's numbers as bigints; print them as numbers
         JSON.stringify(rpcResponse?.value?.err, (_, v) =>
-          typeof v === 'bigint' ? v.toString() : v
+          typeof v === 'bigint' ? Number(v) : v
         )
     )
   }

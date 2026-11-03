@@ -41591,7 +41591,8 @@ const getSimulationComputeUnits = async (rpc, instructions, payer, commitment = 
     if (rpcResponse?.value?.err) {
         const logs = rpcResponse.value.logs?.join('\n  • ') || 'No logs available';
         throw new Error(`Transaction simulation failed:\n  •${logs}` +
-            JSON.stringify(rpcResponse?.value?.err, (_, v) => typeof v === 'bigint' ? v.toString() : v));
+            // Kit returns the error's numbers as bigints; print them as numbers
+            JSON.stringify(rpcResponse?.value?.err, (_, v) => typeof v === 'bigint' ? Number(v) : v));
     }
     return Number(rpcResponse.value.unitsConsumed) || null;
 };
@@ -42190,7 +42191,7 @@ async function getTransactionPda(multisigPda, index) {
 async function fetchMultisigTransactionIndex(rpc, multisigPda) {
     const account = await fetchAccount(rpc, multisigPda);
     if (!account) {
-        throw new Error(`Multisig account ${multisigPda} not found`);
+        throw new Error(`Unable to find Multisig account at ${multisigPda}`);
     }
     if (account.owner !== SQUADS_PROGRAM_ID) {
         throw new Error(`Account ${multisigPda} is not owned by the Squads program (${account.owner})`);

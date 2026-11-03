@@ -17,15 +17,33 @@ export const FAKE_UNITS_CONSUMED = 41_234
 // Same formula as the runtime with default rent parameters.
 export const rentExemptLamports = (size: number) => (size + 128) * 6960
 
+export type FakeRpcFaults = {
+  // Answer the first N calls of a method with a JSON-RPC error
+  failFirst?: Record<string, number>
+  // Report the signature as not found for the first N status polls
+  pendingStatusPolls?: number
+  // Make simulateTransaction report this error
+  simulationError?: unknown
+}
+
 /**
  * A minimal Solana JSON-RPC server that serves fixed accounts and records
  * every request, so the action's RPC traffic and the transactions it sends can
  * be compared across implementations.
  */
-export async function startFakeRpc(accounts: Record<string, FakeAccount>) {
+export async function startFakeRpc(
+  accounts: Record<string, FakeAccount>,
+  faults: FakeRpcFaults = {}
+) {
   const requests: RecordedRequest[] = []
+  const calls: Record<string, number> = {}
+  let statusPolls = 0
 
   const handle = (method: string, params: unknown[]): unknown => {
+    calls[method] = (calls[method] ?? 0) + 1
+    if (calls[method] <= (faults.failFirst?.[method] ?? 0)) {
+      throw new Error(`Injected failure #${calls[method]} for ${method}`)
+    }
     switch (method) {
       case 'getAccountInfo': {
         const account = accounts[params[0] as string]
@@ -54,8 +72,10 @@ export async function startFakeRpc(accounts: Record<string, FakeAccount>) {
         return {
           context: { slot: 1 },
           value: {
-            err: null,
-            logs: [],
+            err: faults.simulationError ?? null,
+            logs: faults.simulationError
+              ? ['Program log: injected failure', 'Program failed']
+              : [],
             accounts: null,
             unitsConsumed: FAKE_UNITS_CONSUMED,
             returnData: null
@@ -67,15 +87,20 @@ export async function startFakeRpc(accounts: Record<string, FakeAccount>) {
         return bs58.encode(wire.subarray(1, 65))
       }
       case 'getSignatureStatuses':
+        statusPolls++
         return {
           context: { slot: 1 },
-          value: (params[0] as string[]).map(() => ({
-            slot: 1,
-            confirmations: null,
-            err: null,
-            status: { Ok: null },
-            confirmationStatus: 'confirmed'
-          }))
+          value: (params[0] as string[]).map(() =>
+            statusPolls <= (faults.pendingStatusPolls ?? 0)
+              ? null
+              : {
+                  slot: 1,
+                  confirmations: null,
+                  err: null,
+                  status: { Ok: null },
+                  confirmationStatus: 'confirmed'
+                }
+          )
         }
       default:
         throw new Error(`Unexpected RPC method ${method}`)

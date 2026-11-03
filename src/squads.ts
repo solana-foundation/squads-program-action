@@ -60,7 +60,7 @@ export async function fetchMultisigTransactionIndex(
 ): Promise<bigint> {
   const account = await fetchAccount(rpc, multisigPda)
   if (!account) {
-    throw new Error(`Multisig account ${multisigPda} not found`)
+    throw new Error(`Unable to find Multisig account at ${multisigPda}`)
   }
   if (account.owner !== SQUADS_PROGRAM_ID) {
     throw new Error(

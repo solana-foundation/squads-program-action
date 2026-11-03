@@ -98,7 +98,7 @@ describe('squads.ts', () => {
     it('rejects a missing account', async () => {
       await expect(
         fetchMultisigTransactionIndex(rpcWith(null), multisigPda)
-      ).rejects.toThrow('not found')
+      ).rejects.toThrow('Unable to find Multisig account')
     })
 
     it('rejects an account owned by another program', async () => {
