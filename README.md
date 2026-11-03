@@ -154,7 +154,7 @@ multisig member imports the output into the
 import, one approval.
 
 ```yaml
-- uses: solana-foundation/squads-program-action@v0.5.1
+- uses: solana-foundation/squads-program-action@v0.5.2
   id: export-squads-tx
   with:
     rpc: ${{ secrets.RPC_URL }}
