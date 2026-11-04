@@ -12,6 +12,7 @@
     "src",
     "eslint.config.mjs",
     "jest.config.js",
+    "script/*.mjs",
     "./rollup.config.ts"
   ]
 }

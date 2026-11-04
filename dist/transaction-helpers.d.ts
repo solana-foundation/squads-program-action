@@ -1,5 +1,16 @@
-import { AddressLookupTableAccount, Commitment, Connection, Keypair, PublicKey, SignatureStatus, Transaction, TransactionInstruction } from '@solana/web3.js';
-export declare const getSimulationComputeUnits: (connection: Connection, instructions: Array<TransactionInstruction>, payer: PublicKey, lookupTables: Array<AddressLookupTableAccount> | [], commitment?: Commitment) => Promise<number | null>;
+import { type Address, type Commitment, type Instruction, type KeyPairSigner } from '@solana/kit';
+import type { SolanaRpc } from './rpc.js';
+/**
+ * A legacy transaction under construction: the instructions plus an optional
+ * blockhash and fee payer (defaulting to the first signer).
+ */
+export type PendingTransaction = {
+    instructions: Instruction[];
+    recentBlockhash?: string;
+    feePayer?: Address;
+};
+type SignatureStatus = NonNullable<Awaited<ReturnType<ReturnType<SolanaRpc['getSignatureStatuses']>['send']>>['value'][number]>;
+export declare const getSimulationComputeUnits: (rpc: SolanaRpc, instructions: Array<Instruction>, payer: Address, commitment?: Commitment) => Promise<number | null>;
 /**
  * Constants for transaction retry configuration
  */
@@ -57,9 +68,9 @@ export declare const DEFAULT_SEND_OPTIONS: Required<Omit<SendTransactionOptions,
 /**
  * Prepares a transaction by adding compute budget instructions
  *
- * @param connection - The Solana connection object
+ * @param rpc - The Solana RPC client
  * @param tx - The transaction to prepare
- * @param payer - The public key of the transaction payer
+ * @param payer - The address of the transaction payer
  * @param priorityFee - Priority fee in microLamports (default: 10000 which is the minimum required for helius to see a transaction as priority)
  * @param computeUnitBuffer - Optional buffer to add to simulated compute units
  *
@@ -82,24 +93,12 @@ export declare const DEFAULT_SEND_OPTIONS: Required<Omit<SendTransactionOptions,
  * - Quicknode: https://www.quicknode.com/docs/solana/qn_estimatePriorityFees
  *
  * @throws If the transaction simulation fails
- *
- * @example
- * ```typescript
- * // Add 10% buffer plus 1000 fixed compute units
- * await prepareTransactionWithCompute(
- *   connection,
- *   transaction,
- *   payer.publicKey,
- *   1000,
- *   { multiplier: 1.1, fixed: 1000 }
- * );
- * ```
  */
-export declare function prepareTransactionWithCompute(connection: Connection, tx: Transaction, payer: PublicKey, priorityFee?: number, computeUnitBuffer?: ComputeUnitBuffer, commitment?: Commitment): Promise<void>;
+export declare function prepareTransactionWithCompute(rpc: SolanaRpc, tx: PendingTransaction, payer: Address, priorityFee?: number, computeUnitBuffer?: ComputeUnitBuffer, commitment?: Commitment): Promise<void>;
 /**
  * Sends a transaction with compute unit optimization and automatic retries
  *
- * @param connection - The Solana connection object
+ * @param rpc - The Solana RPC client
  * @param transaction - The transaction to send
  * @param signers - Array of signers needed for the transaction
  * @param priorityFee - Priority fee in microLamports (default: 10000 which is the minimum required for helius to see a transaction as priority)
@@ -109,8 +108,8 @@ export declare function prepareTransactionWithCompute(connection: Connection, tx
  * @example
  * ```typescript
  * const signature = await sendTransaction(
- *   connection,
- *   transaction,
+ *   rpc,
+ *   { instructions },
  *   [payer],
  *   10000,
  *   {
@@ -120,6 +119,7 @@ export declare function prepareTransactionWithCompute(connection: Connection, tx
  * );
  * ```
  */
-export declare function sendTransaction(connection: Connection, transaction: Transaction, signers: Keypair[], priorityFee?: number, options?: SendTransactionOptions & {
+export declare function sendTransaction(rpc: SolanaRpc, transaction: PendingTransaction, signers: KeyPairSigner[], priorityFee?: number, options?: SendTransactionOptions & {
     computeUnitBuffer?: ComputeUnitBuffer;
 }): Promise<string>;
+export {};

@@ -1,0 +1,1525 @@
+{
+  "export: program upgrade only (base58)": {
+    "output": "FY859QCZourbHri6TpbQ7MiHmsC5bwh9uYwwqJAcq5kB3uziDUtodGrTPm2kyru8VzVhpnX33v1SN5FxkQNL9jkKi4ku72A1hUzca6rQNakiyRnoV3GS4ozZmp2E14xxfu3HAL4ceUdRdKfuVTWLN24Nw7UJPKDnmKnpdwvPo1RhmR7DfyZ7h4F66C5yVNqbHAqaPc47urYGpjYWER4pJvkuusUNoR1knMvcHUjUA3r8KX5cCQa8d77Ga5S6s1qwD7go3v8p1nERg9fAZXkMob1xhHP9BhYQQDWT4YTiGsHMaRYxBFYn2SkQmPRzhqSRwvXxjgxUejhLgzqt2fHkWQ63uzRxdPRexkCExNxxvEXGZB4obVTRU8Pp2gwhd3uQobcCPc6Sx5kndaVL7kdSGQpPAEjK8DSRm3W6vCdNLtFVnX5ADTPUE5cbz2RiRfi2bb9nwLbh9ge1HYNde3LE6r7fNVQmGxpBYMhJNYxeoQm3KENY7jhCTCDBc9M",
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      }
+    ]
+  },
+  "export: anchor IDL, vault 2 (base64)": {
+    "output": "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAMKi/jdTJyeu+X2A7g0vupj08OEdM0A2zVn2WVdPqpQEvYoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKirqSmxj4pxSCr71UHsTLsX5lUd2rr6+e5JCHuppFEbSLPfhVqs7AEupVEYLFD1fH3lTe9JVLPuy4SSFTjwHXPz1Ba0b7VVesh22AhKQbTzt9CaiII+OjgmmilBfAKFoXWcCqPaRToihsOIQFT73Y64rAMK5PRbBJNLAU3oQBIAAAAan1RcYx3TJKFZjmGkdXraLXrijm0ttXHNVWyEAAAAABqfVFxksXFEhjMlMPUrxf1ja7gibof1E49vZigAAAADjMtr5L6vs6LY/96RABeX9/Zr6FYdWthxalfkEs7jQgQIBAwMGAAlA9Lx4p+lpCgMHBwUBAgQJCAAEAwAAAA==",
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      }
+    ]
+  },
+  "export: anchor IDL + PDA verification, no keypair": {
+    "output": "3UaTR85FHxMLEZ9TmZRhowBjEX4PVpuNUaz8w1YX2R2JMfA5iaFQvtW1VNkyhn4SM2RKpSemc9deMNAC4c6pGvNxDuy1kqZeXxzq7fNByzQJ3BNvhYvZo39DrR78qy4yjLUWTYPffVKbKR1XEaMYjMG79o6dnKXoiN7UV38osbE119jnj33jsBLTCBJFdk8YdFQAV6c9nGziyGVdmK7mTBLYsZCBH8sq59FVWhxuKedDxRd9dpZgyuocnpVFgrTWTZqQzfkDc4wAtVHXjL1mGtgnm94Uqjnn6kZy4XkEedr1AzMApnwQsysD3sJmY5H7r5i3XE635QoF3deJ5jxvycAS4G64AEhCeii99rS6rNQUYZb3EBoq9rd5ciLdkJGs2CHUcupLRCKSn2Wx6o1JEFk6bvPkx5HT2ASM7YjDKpQCdA6SBeiAmZLBA43pJmnktsumyrq2fRguJgzK5QHRVN6aZYTFUhHgyaPC6GBnbhUDzz1X5RQ6hnWy5Bb2do5YDJHR8vNYp21bevhp6jMJ4jfY2RVjfXFpWhvf65ot8Nhzqg5MDqda1jbfNKc3vYhm4pPVev3fn4C3mVFDiMCs4UBMaeu5WFYoKAagv2n6oL2422X4AgmWPNwp51KiJYth39N2cEG4qD5gnf3g55Epi5turUbHSmsWBqRU59Vuoo41oRnVh6J8rstqwDVCEtvRAJcdYrm9X6z737iMCdAVyrn5Qmg6u6HoLkwVueVpnYgcZQRHgUcB3gVoDqDbPt9TdmoTrUjGhWkv17YkdvDvHtSSsZ3TT5ctqi6o1iJ3dDbQtfY3JDR7ySiow9y",
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      }
+    ]
+  },
+  "export: new metadata account, not prefunded": {
+    "output": "79pYoe1ddpkckmtdDLbmFyof2h9KYbUVs2Aq9r1DU9Hg56BHrH2DjwGRG1pPBcZFPiyQKueFbcadKK3z7p5Qd25CxiZRDurixWKhB3YPubRm8MS3Hub3d47vap8dmjBCL9jgk6u6UBr6hu3iscaR1DNcaRVGGGj62pKK27AbePVG7ojwvqZkj2twr34Le97JcAWMKEhAF9AeNvaHdvDUsnCuk9xaBgKCom5nzvCGQJGTDYkvZr8Zsns4vdT4tMtENsQxBwvwTtQhgwkZbdRLYJpthtZsF4cC23Zg3Ve9DXyGHg4Qg2yWVne2E2sZ5AHwjkYsjP99Di2i6W4jgNqBaQLK7nzH8w8MRK9PEzUqNnJ9GDLJdPnKZQgYHMeK3Z6M4dgGUEX41XGXGSU9fFneHjrwfqFD7HtjyMt7y2LuHWFXTa9SA8NEXKuZ3du8d2kivNUwJyrcv4euqmRWHGPrBKSQFwHQZy9WWcGNmPQGSwRtWKXuSdHNeUcFnnr2tuzpU7CFzg6NpCwDnrD2PPPXN8R6mLtMQzco7NpGP5cDc8BDnGYFfk5JEzAvJau3PwRQBbCvqsK3G4x88qD9GLsMkRRUgQui7uS45EeqtTkLRdATEbNGZCzYX3SkZnWpL7rCNo2BGzyysc3HfqutkQyq7anAsh7jY4Hh86ZvPe8YmBPvjNm83F4ChLnQf2irxRXprUpcii4RwFwe73516fGoVEy1ktpJ6mdUt39Lf9G5gDdAgVRkRRa1qforQELaXbtPEzvzy9zrTadvhkJCyrZQyREphD",
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "CdDrQeGgyyYXegMFtresrmBnJd5XisLoEAMZM56kVvkH",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3uWi9x2SRpmjztkpkr2WWeBoVq3exjXG2YfDWLvm8KsQ",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getMinimumBalanceForRentExemption",
+        "params": [2096]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      }
+    ]
+  },
+  "export: new metadata account, partly prefunded, needs extends": {
+    "output": "6SaFNqgNbkoUFesLaH5QZiSy6Y5zd7SEiBT4pBRw5rvpc2teu8oi2Vv7UfyZvLdvW1uQXXpo5VqnP3CLgF7QhVFrG8MHqw4pePxotk7RRvbXerhKcHFLnY9Vag1hdJuPm4epfxaiAFbPSbnHjA4Ru6o6JAu9B5Ph4i5fCvEHJDZxiLThEz2WhQbWPo6kuyYydVZMpgUYo36DfjSvas4GbeARAuHozERCve18LwNoMhTZaERZVG35nM2sogMoj11dLBczHYkWH7EKAXb6prkqHPiUFwmuVz7u7EUURfaiDTs5hbBtaxTkCv9wdEvMb7wtPZt4uN7UMQQUGUNvmUnjWNwLaXngvojXiUrEzcgTDD2smvJLvF4GNgxuTWAEQUhPZdGr3KLFjvKH5mXoQGP4k7EugxPWetC8Snqi6LP58gZhnb54cob8xzrXeRk3PyTcqMxykyovj85aA8A2QTavspb8CCtrTZGmgiPZzr6rfSy5xQGDpVDtCPMJ4kSsWxPfyt2CEnBh4urQ9j1MgpGtvEJm7Zag9Gnvy4rquWSswVY42EXFcysADLCxcYg5scCuyMJcEr3kQYB5aPCz7pTmDy6zArprfNckudN8Yjn2nTZu5HaeCtz4mwKDMvZ5xiHtRFmxRZZRkR85xDDNjjnayEvagWEYjVxCwq98jYh3Bxp4S5i5rvyePDwvjnGFj7u4k5vCL9mECs9Qnv3StSSuRxP9nWum4FeVp52jgvxVvUYBk8r9NoctZRxHxk66dnbc2dJhEmv6fupgyf8mMXfgJnj2Ryj6441qwqShvF2qxfoyn72qy1kUuLdFiu2qtN676UF",
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "CdDrQeGgyyYXegMFtresrmBnJd5XisLoEAMZM56kVvkH",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3uWi9x2SRpmjztkpkr2WWeBoVq3exjXG2YfDWLvm8KsQ",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getMinimumBalanceForRentExemption",
+        "params": [25096]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      }
+    ]
+  },
+  "export: new metadata account, fully prefunded": {
+    "output": "3ZKqBhFtndYiKVqE8k87J9gVcpA4VeX3SpTaoiP4Z6j6SrAxGZAx6tgNnmPLGF3Lgn6yq3REktvcaVeRBKhz6kUfQS9rFNPLn7dCxTfEpDHZMfz49ziZiPDbfiWngC7YbDHggQSFjjNUHLCbAJtkVAEFWHd6G5NzMWRG9wqQ54YiUGh6A8JkCS1Mp69Pw98Pn2p28GxReEJQ2SsdMy8NLpCc2s9PxPq1n3gEuuifmhMVkLr2uYW73SjX9nq6m8DDvvwopA9YJz7q7Uj8JGfXAN4nwJz9SHrAWHciCg7ZcDtFNkj1UumJoxnhGq629Uysp3xuxQNqgiRYG6VTCguHJtPhrtncAmK63o5AZEptFicL4V6NmMbxpxmoiKjNNKrNQMgzvgCfombPjc9TSGVcbBAQDGmyJa7vUrwKCyth2YN1Mm1mByQq3oycq752xdh5tEJpdootYR65o7WP9GHjbdWHqyKisvpHXj9mTEiWu5j4DRWn9geaFimL6Jezv1oyTt7vcbqbzYRMFFc487ZXFPxDtnkWMYSXbqiRYJa5yw6QzshZgzQ2LuyBSqXMmNEDSHrVuuRm1aeUix4ru1LZRBGE1uudBK2nQsfHCaoghjdU4ziVTzMGyRi8Tbj5BoZvU3PAhAf19ojmjg474DRQfnxoAiG85DpT2vmb5qjziGN4YQP6YHCswmP2Cu2AoLZ8uD5Uv4ZKgxQ8HhNJbLQuVXS7wCPKDX7mJm9Rn9bDtmSmJQwGmuDnu7qDDXxKnDCYniT",
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "CdDrQeGgyyYXegMFtresrmBnJd5XisLoEAMZM56kVvkH",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3uWi9x2SRpmjztkpkr2WWeBoVq3exjXG2YfDWLvm8KsQ",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getMinimumBalanceForRentExemption",
+        "params": [2096]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      }
+    ]
+  },
+  "export: existing metadata grows past realloc limit": {
+    "output": "2GrxbGQ9qgbXyJtD2aMGSUpdhotBtKafgeCsfWVpzpFBewt5edusKWCNB8Lbi1faS4vce9BwCvzpydRTxX6MM46P8bgVB7bSdeQ1p6yu5A8PPopzB4udy5aapeTjZTDo2WkB6wxcpqGNqehxtCBxpiu2bshaUxUZBg7uszB5oDLUZtFLGUQRZLbeffv8Jp6tEgXEhcCqmYMqH5Y8WqcBJrGbC3GFjXxRPZB7MTN4TfiPcLjtMKHvpoumxSyS1zQQJxsoBn8d2sVXDQxUSmJAgv6QygZsBCWz9hKkQhYe28iADgwuvg8FS58vzw8MXZ8s56wpcGxRjN84BEX34PNoEgBzqkhV4k8ZLMLhKCfcmonsAf67FY6euGzG7RBbwox2aBP8Gpwm7DHWuCScj7pHBctA4vpZ82kwZCQrkZmFwqdmySoE2DZXsUm1nukvmNFv6UnrMTq49FVjZJ36EUiesMMvmJoXfpZ2LaykqQGWuc3784bRy3TbnTXixDQX2FXzzA7d2qaXUwR9idge5sKa3yHH5hd323QjHWT6MSEEj7iEs1ZJi3bmaKkyW5Yb1eu2Kt4EgVwU1Tp4YSNfxL4GCosq6jVCMNo89Bki7iw93djNCjqtbyaUkqHamS1fNvoXoxL49Nhfn5A5GSpfzWcvtsaAYEfZEMkTvTVsZNxbqvEbtGY9ecb6waESxjtu9y95WEJsmTkFpnRVp4pFcgfQZ5YyLZyUMVytzbKzyjQG6kSSzLZYnYBHq5f2x4NNFFAtaDZHXbs9d9",
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "CdDrQeGgyyYXegMFtresrmBnJd5XisLoEAMZM56kVvkH",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3uWi9x2SRpmjztkpkr2WWeBoVq3exjXG2YfDWLvm8KsQ",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getMinimumBalanceForRentExemption",
+        "params": [40096]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      }
+    ]
+  },
+  "error: export transaction too large": {
+    "error": "Combined transaction exceeds the 1232 byte transaction limit. Export the verify, IDL, and upgrade transactions separately instead. Serialization error: Transaction too large: 1562 > 1232",
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "CdDrQeGgyyYXegMFtresrmBnJd5XisLoEAMZM56kVvkH",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3uWi9x2SRpmjztkpkr2WWeBoVq3exjXG2YfDWLvm8KsQ",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getMinimumBalanceForRentExemption",
+        "params": [1000096]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      }
+    ]
+  },
+  "export: existing metadata grows, already funded": {
+    "output": "98H2KrmYwwhGjgtmPZkRXsamcaSvfqDLomxQxvvtDKPC3Ji4GB7ZoJ1Vpr8jUJztRyx69T38w9CJeQNNysaDLLTtBChhbGSuuswgz4jbdNs7txXadpbibnGgCEhLWxtbJ6BQu18VHmFp3M6PiKPdpANB3XxzfN3hZvJT33nVuYEB9Fw2TtCUNF3cW6sisL1zGCgBjA56ywG7GP5Q8FdwKYpQBa8a17hF9TtRjZfgTrnS7uP2zYTtCpnAeFusvayubXMcVstyAKZV2kNAmKXYK1rhpe5UV35whLcyM8vG6TUudzBU745mQ26eh3tEyKxJX7iNVHczS97T4xE62qRBkAiz8tD2N8cajw9RmEqhjxyajXGxFmk5J48QZUt4AAC77ge3ntViT8zavUW4XekwdzonH53ZuwWa9mQkjXmwPrn97CW3TAgYe8bAoFQJp2SX3WJXFgbKYcZZfqTjYUM6iNTNhWouEnHtn9dJSHUj9CE3Vyk2wRKkksh6RGJydAqxaP4b1YMKSXXMYYLBFxW4Vz81X6CHCt89U9pWz27MYueBves655W73EfR59Y4jgspYFrv7w9E6ygLurXCQk2M3qQ7dSRZUSm3ABQfkim1NfC69fB2ecSsfsRs89GwvKtyzQNy18vigJGMNJXh",
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "CdDrQeGgyyYXegMFtresrmBnJd5XisLoEAMZM56kVvkH",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3uWi9x2SRpmjztkpkr2WWeBoVq3exjXG2YfDWLvm8KsQ",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getMinimumBalanceForRentExemption",
+        "params": [3096]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      }
+    ]
+  },
+  "export: existing metadata shrinks": {
+    "output": "98H2KrmYwwhGjgtmPZkRXsamcaSvfqDLomxQxvvtDKPC3Ji4GB7ZoJ1Vpr8jUJztRyx69T38w9CJeQNNysaDLLTtBChhbGSuuswgz4jbdNs7txXadpbibnGgCEhLWxtbJ6BQu18VHmFp3M6PiKPdpANB3XxzfN3hZvJT33nVuYEB9Fw2TtCUNF3cW6sisL1zGCgBjA56ywG7GP5Q8FdwKYpQBa8a17hF9TtRjZfgTrnS7uP2zYTtCpnAeFusvayubXMcVstyAKZV2kNAmKXYK1rhpe5UV35whLcyM8vG6TUudzBU745mQ26eh3tEyKxJX7iNVHczS97T4xE62qRBkAiz8tD2N8cajw9RmEqhjxyajXGxFmk5J48QZUt4AAC77ge3ntViT8zavUW4XekwdzonH53ZuwWa9mQkjXmwPrn97CW3TAgYe8bAoFQJp2SX3WJXFgbKYcZZfqTjYUM6iNTNhWouEnHtn9dJSHUj9CE3Vyk2wRKkksh6RGJydAqxaP4b1YMKSXXMYYLBFxW4Vz81X6CHCt89U9pWz27MYueBves655W73EfR59Y4jgspYFrv7w9E6ygLurXCQk2M3qQ7dSRZUSm3ABQfkim1NfC69fB2ecSsfsRs89GwvKtyzQNy18vigJGMNJXh",
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "CdDrQeGgyyYXegMFtresrmBnJd5XisLoEAMZM56kVvkH",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3uWi9x2SRpmjztkpkr2WWeBoVq3exjXG2YfDWLvm8KsQ",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      }
+    ]
+  },
+  "create vault transaction: program upgrade only": {
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "AKnL4NNf3DGWZJS6cPknBuEGnVsV4A4m5tgebLHaRSZ9",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "simulateTransaction",
+        "params": [
+          "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQADBupKbGPinFIKvvVQexMuxfmVR3auvr57kkIe6mkURtIsiojj3XQJ8ZX9UtstPLpdcspnCb8dlBIb83SIAbQPb1y0cVd3EUsj9i888609lQ24FEVgCOZ6/BL9y1WtJhAAJwMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABoHEzkfiI2i4sVVeyIevCS78fvu2bKP1L79o1Kyct6gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwMABQLAXBUABAUBAgAABbcCMPpOqNDi2tMAABUBAAABAQQIx8mDKvL7CD+1MVDusIM/UCflYNO7nCZpYbqkFYP7Cu734VarOwBLqVRGCxQ9Xx95U3vSVSz7suEkhU48B1z89SgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSnqSmxj4pxSCr71UHsTLsX5lUd2rr6+e5JCHuppFEbSLAKo9pFOiKGw4hAVPvdjrisAwrk9FsEk0sBTehAEgAAABqfVFxksXFEhjMlMPUrxf1ja7gibof1E49vZigAAAAAGp9UXGMd0yShWY5hpHV62i164o5tLbVxzVVshAAAAAAEFBwECAwQGBwAEAAMAAAAAAQ8AAABQcm9ncmFtIHVwZ3JhZGUDAAkDoIYBAAAAAAAA",
+          {
+            "replaceRecentBlockhash": true,
+            "sigVerify": false,
+            "commitment": "confirmed",
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "sendTransaction",
+        "params": [
+          "AaUtMCRQbmBr59rTWXuTRqCR1x8WcNseZhwAShWFjo9ouU+iQNCdcK3KXzgMKuOzjIRjaV70dMO42kkwpJ30BAkBAAMG6kpsY+KcUgq+9VB7Ey7F+ZVHdq6+vnuSQh7qaRRG0iyKiOPddAnxlf1S2y08ul1yymcJvx2UEhvzdIgBtA9vXLRxV3cRSyP2LzzzrT2VDbgURWAI5nr8Ev3LVa0mEAAnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBkZv5SEXMv/srbpyw5vnvIzlu8X3EmssQ5s6QAAAAAaBxM5H4iNouLFVXsiHrwku/H77tmyj9S+/aNSsnLeo4zLa+S+r7Oi2P/ekQAXl/f2a+hWHVrYcWpX5BLO40IEDBQUBAgAAA7cCMPpOqNDi2tMAABUBAAABAQQIx8mDKvL7CD+1MVDusIM/UCflYNO7nCZpYbqkFYP7Cu734VarOwBLqVRGCxQ9Xx95U3vSVSz7suEkhU48B1z89SgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSnqSmxj4pxSCr71UHsTLsX5lUd2rr6+e5JCHuppFEbSLAKo9pFOiKGw4hAVPvdjrisAwrk9FsEk0sBTehAEgAAABqfVFxksXFEhjMlMPUrxf1ja7gibof1E49vZigAAAAAGp9UXGMd0yShWY5hpHV62i164o5tLbVxzVVshAAAAAAEFBwECAwQGBwAEAAMAAAAAAQ8AAABQcm9ncmFtIHVwZ3JhZGUEAAkDoIYBAAAAAAAEAAUCLbEAAA==",
+          {
+            "encoding": "base64",
+            "maxRetries": 0,
+            "skipPreflight": true,
+            "preflightCommitment": "processed"
+          }
+        ]
+      },
+      {
+        "method": "getSignatureStatuses",
+        "params": [
+          [
+            "4JYJMTAkaywknWJaJzsRkEYjAGRdW5tT2qjjwZcAcLEAx58BXXdab7SiseNA1KUDTBX8pW2rcTRZuFxG4x7cwTpU"
+          ]
+        ]
+      }
+    ]
+  },
+  "create vault transaction: anchor IDL + PDA verification, vault 0": {
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "AKnL4NNf3DGWZJS6cPknBuEGnVsV4A4m5tgebLHaRSZ9",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "simulateTransaction",
+        "params": [
+          "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQADBupKbGPinFIKvvVQexMuxfmVR3auvr57kkIe6mkURtIsiojj3XQJ8ZX9UtstPLpdcspnCb8dlBIb83SIAbQPb1y0cVd3EUsj9i888609lQ24FEVgCOZ6/BL9y1WtJhAAJwMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABoHEzkfiI2i4sVVeyIevCS78fvu2bKP1L79o1Kyct6gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwMABQLAXBUABAUBAgAABe8EMPpOqNDi2tMAACECAAABAQcOx8mDKvL7CD+1MVDusIM/UCflYNO7nCZpYbqkFYP7Cu5VJvdClBcRs7xTC6RP9vbasPCrca+DL0Gn/juf2u2cYCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioFrRvtVV6yHbYCEpBtPO30JqIgj46OCaaKUF8AoWhdZ/fhVqs7AEupVEYLFD1fH3lTe9JVLPuy4SSFTjwHXPz1KSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSnqSmxj4pxSCr71UHsTLsX5lUd2rr6+e5JCHuppFEbSLA2+lpJavr/X1WcNH9tBZ1bBsUaYr+WpjACZKYVVNJIXcN+eInmtvsbRK/KSEYTJIi6yTthSAFv2QBOfUuWc2a4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKo9pFOiKGw4hAVPvdjrisAwrk9FsEk0sBTehAEgAAABqfVFxksXFEhjMlMPUrxf1ja7gibof1E49vZigAAAAAGp9UXGMd0yShWY5hpHV62i164o5tLbVxzVVshAAAAAAMIBAABCQo0AHZlcmlmeS1hcmdzOnh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHgCAwMEAAkAQPS8eKfpaQoDCwcFAgYHDA0ABAADAAAAAAE7AAAAUHJvZ3JhbSB1cGdyYWRlIHdpdGggQW5jaG9yIElETCB1cGRhdGUgYW5kIFBEQSB2ZXJpZmljYXRpb24DAAkDoIYBAAAAAAAA",
+          {
+            "replaceRecentBlockhash": true,
+            "sigVerify": false,
+            "commitment": "confirmed",
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "sendTransaction",
+        "params": [
+          "AfMh6cy+V4FNEVOWNayjA6oKJqNutdzyXh1plXyLtzMnMyBmMuuiUuGC+k/FUgrd51QzvK7Eau+iixoKkIYCiw4BAAMG6kpsY+KcUgq+9VB7Ey7F+ZVHdq6+vnuSQh7qaRRG0iyKiOPddAnxlf1S2y08ul1yymcJvx2UEhvzdIgBtA9vXLRxV3cRSyP2LzzzrT2VDbgURWAI5nr8Ev3LVa0mEAAnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBkZv5SEXMv/srbpyw5vnvIzlu8X3EmssQ5s6QAAAAAaBxM5H4iNouLFVXsiHrwku/H77tmyj9S+/aNSsnLeo4zLa+S+r7Oi2P/ekQAXl/f2a+hWHVrYcWpX5BLO40IEDBQUBAgAAA+8EMPpOqNDi2tMAACECAAABAQcOx8mDKvL7CD+1MVDusIM/UCflYNO7nCZpYbqkFYP7Cu5VJvdClBcRs7xTC6RP9vbasPCrca+DL0Gn/juf2u2cYCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioFrRvtVV6yHbYCEpBtPO30JqIgj46OCaaKUF8AoWhdZ/fhVqs7AEupVEYLFD1fH3lTe9JVLPuy4SSFTjwHXPz1KSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSnqSmxj4pxSCr71UHsTLsX5lUd2rr6+e5JCHuppFEbSLA2+lpJavr/X1WcNH9tBZ1bBsUaYr+WpjACZKYVVNJIXcN+eInmtvsbRK/KSEYTJIi6yTthSAFv2QBOfUuWc2a4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKo9pFOiKGw4hAVPvdjrisAwrk9FsEk0sBTehAEgAAABqfVFxksXFEhjMlMPUrxf1ja7gibof1E49vZigAAAAAGp9UXGMd0yShWY5hpHV62i164o5tLbVxzVVshAAAAAAMIBAABCQo0AHZlcmlmeS1hcmdzOnh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHgCAwMEAAkAQPS8eKfpaQoDCwcFAgYHDA0ABAADAAAAAAE7AAAAUHJvZ3JhbSB1cGdyYWRlIHdpdGggQW5jaG9yIElETCB1cGRhdGUgYW5kIFBEQSB2ZXJpZmljYXRpb24EAAkDoIYBAAAAAAAEAAUCLbEAAA==",
+          {
+            "encoding": "base64",
+            "maxRetries": 0,
+            "skipPreflight": true,
+            "preflightCommitment": "processed"
+          }
+        ]
+      },
+      {
+        "method": "getSignatureStatuses",
+        "params": [
+          [
+            "5rwPpu6VJpKzTLYkPRAVkKMpyz3ZeMswu9dwB7DaUdwL1o7HnsLa18aDVaQKtbT6bz5AoLntQVGzyKgLrvuyhJWR"
+          ]
+        ]
+      }
+    ]
+  },
+  "create vault transaction: existing metadata grows, vault 1": {
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "CdDrQeGgyyYXegMFtresrmBnJd5XisLoEAMZM56kVvkH",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3uWi9x2SRpmjztkpkr2WWeBoVq3exjXG2YfDWLvm8KsQ",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getMinimumBalanceForRentExemption",
+        "params": [4096]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "AKnL4NNf3DGWZJS6cPknBuEGnVsV4A4m5tgebLHaRSZ9",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "simulateTransaction",
+        "params": [
+          "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQADBupKbGPinFIKvvVQexMuxfmVR3auvr57kkIe6mkURtIsiojj3XQJ8ZX9UtstPLpdcspnCb8dlBIb83SIAbQPb1y0cVd3EUsj9i888609lQ24FEVgCOZ6/BL9y1WtJhAAJwMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABoHEzkfiI2i4sVVeyIevCS78fvu2bKP1L79o1Kyct6gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwMABQLAXBUABAUBAgAABfgDMPpOqNDi2tMBALUBAAABAQYMN2mKPHkCg+f1JQYkohCu2CbRI+7wHdkr4/VcxsGTuCyst/84hLRZzX5GyC/u55xBZB0NlwOrynGubBglB/lbcisrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj34VarOwBLqVRGCxQ9Xx95U3vSVSz7suEkhU48B1z89SkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkp6kpsY+KcUgq+9VB7Ey7F+ZVHdq6+vnuSQh7qaRRG0iwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXbF57DPpP5S8MhVwfk+wR0PsmvqEoboG9odov2ZTiJAqj2kU6IobDiEBU+92OuKwDCuT0WwSTSwFN6EASAAAAGp9UXGSxcUSGMyUw9SvF/WNruCJuh/UTj29mKAAAAAAan1RcYx3TJKFZjmGkdXraLXrijm0ttXHNVWyEAAAAAAwcCAAEMAAIAAACcl8ABAAAAAAgFAQACAwQFAAMBAgEACQcEAwUGCgsABAADAAAAAAEwAAAAUHJvZ3JhbSB1cGdyYWRlIHdpdGggcHJvZ3JhbS1tZXRhZGF0YSBJREwgdXBkYXRlAwAJA6CGAQAAAAAAAA==",
+          {
+            "replaceRecentBlockhash": true,
+            "sigVerify": false,
+            "commitment": "confirmed",
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "sendTransaction",
+        "params": [
+          "AQxgxjkr8yjkxsWInZLye3fxsbSxkMIYfPB6ynWjkBR7+hgtdGTashuHbyfAt3LgbvbtmRud6fF+N/qVMBTBHAgBAAMG6kpsY+KcUgq+9VB7Ey7F+ZVHdq6+vnuSQh7qaRRG0iyKiOPddAnxlf1S2y08ul1yymcJvx2UEhvzdIgBtA9vXLRxV3cRSyP2LzzzrT2VDbgURWAI5nr8Ev3LVa0mEAAnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBkZv5SEXMv/srbpyw5vnvIzlu8X3EmssQ5s6QAAAAAaBxM5H4iNouLFVXsiHrwku/H77tmyj9S+/aNSsnLeo4zLa+S+r7Oi2P/ekQAXl/f2a+hWHVrYcWpX5BLO40IEDBQUBAgAAA/gDMPpOqNDi2tMBALUBAAABAQYMN2mKPHkCg+f1JQYkohCu2CbRI+7wHdkr4/VcxsGTuCyst/84hLRZzX5GyC/u55xBZB0NlwOrynGubBglB/lbcisrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj34VarOwBLqVRGCxQ9Xx95U3vSVSz7suEkhU48B1z89SkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkp6kpsY+KcUgq+9VB7Ey7F+ZVHdq6+vnuSQh7qaRRG0iwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXbF57DPpP5S8MhVwfk+wR0PsmvqEoboG9odov2ZTiJAqj2kU6IobDiEBU+92OuKwDCuT0WwSTSwFN6EASAAAAGp9UXGSxcUSGMyUw9SvF/WNruCJuh/UTj29mKAAAAAAan1RcYx3TJKFZjmGkdXraLXrijm0ttXHNVWyEAAAAAAwcCAAEMAAIAAACcl8ABAAAAAAgFAQACAwQFAAMBAgEACQcEAwUGCgsABAADAAAAAAEwAAAAUHJvZ3JhbSB1cGdyYWRlIHdpdGggcHJvZ3JhbS1tZXRhZGF0YSBJREwgdXBkYXRlBAAJA6CGAQAAAAAABAAFAi2xAAA=",
+          {
+            "encoding": "base64",
+            "maxRetries": 0,
+            "skipPreflight": true,
+            "preflightCommitment": "processed"
+          }
+        ]
+      },
+      {
+        "method": "getSignatureStatuses",
+        "params": [
+          [
+            "FMWcE9YnvwYiUUw1yweg3ztePzwd16h4VB9fPEt7cWhVb3oVMGEeYMcDHBqRvA9J7ttY75kCWXEjjmT7xbVbr5m"
+          ]
+        ]
+      }
+    ]
+  },
+  "error: idl-buffer and metadata-buffer together": {
+    "error": "Cannot use both idl-buffer and metadata-buffer. Use idl-buffer for Anchor IDL or metadata-buffer for program-metadata.",
+    "errorLog": [],
+    "requests": []
+  },
+  "error: keypair missing without export": {
+    "error": "keypair is required unless export is true",
+    "errorLog": [],
+    "requests": []
+  },
+  "error: multisig account not owned by Squads": {
+    "error": "Expected \u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002 to hold a COption",
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      }
+    ]
+  },
+  "create vault transaction: vault 255, priority fee 1": {
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "AKnL4NNf3DGWZJS6cPknBuEGnVsV4A4m5tgebLHaRSZ9",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "simulateTransaction",
+        "params": [
+          "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQADBupKbGPinFIKvvVQexMuxfmVR3auvr57kkIe6mkURtIsiojj3XQJ8ZX9UtstPLpdcspnCb8dlBIb83SIAbQPb1y0cVd3EUsj9i888609lQ24FEVgCOZ6/BL9y1WtJhAAJwMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABoHEzkfiI2i4sVVeyIevCS78fvu2bKP1L79o1Kyct6gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwMABQLAXBUABAUBAgAABbcCMPpOqNDi2tP/ABUBAAABAQQI2Kn6zgd3GLwPEavGBHSee8qc+mytwN7ZONHvROWTYiT34VarOwBLqVRGCxQ9Xx95U3vSVSz7suEkhU48B1z89SgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSnqSmxj4pxSCr71UHsTLsX5lUd2rr6+e5JCHuppFEbSLAKo9pFOiKGw4hAVPvdjrisAwrk9FsEk0sBTehAEgAAABqfVFxksXFEhjMlMPUrxf1ja7gibof1E49vZigAAAAAGp9UXGMd0yShWY5hpHV62i164o5tLbVxzVVshAAAAAAEFBwECAwQGBwAEAAMAAAAAAQ8AAABQcm9ncmFtIHVwZ3JhZGUDAAkDAQAAAAAAAAAA",
+          {
+            "replaceRecentBlockhash": true,
+            "sigVerify": false,
+            "commitment": "confirmed",
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "sendTransaction",
+        "params": [
+          "AWFIsy4SwZ9HRFxNO6IU1k1smBwwTgnxy9JFLSAw+YvzaFExC39KPrNHkXrwcUKGcFxO6ccPXwCai125UzvVWQEBAAMG6kpsY+KcUgq+9VB7Ey7F+ZVHdq6+vnuSQh7qaRRG0iyKiOPddAnxlf1S2y08ul1yymcJvx2UEhvzdIgBtA9vXLRxV3cRSyP2LzzzrT2VDbgURWAI5nr8Ev3LVa0mEAAnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBkZv5SEXMv/srbpyw5vnvIzlu8X3EmssQ5s6QAAAAAaBxM5H4iNouLFVXsiHrwku/H77tmyj9S+/aNSsnLeo4zLa+S+r7Oi2P/ekQAXl/f2a+hWHVrYcWpX5BLO40IEDBQUBAgAAA7cCMPpOqNDi2tP/ABUBAAABAQQI2Kn6zgd3GLwPEavGBHSee8qc+mytwN7ZONHvROWTYiT34VarOwBLqVRGCxQ9Xx95U3vSVSz7suEkhU48B1z89SgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSnqSmxj4pxSCr71UHsTLsX5lUd2rr6+e5JCHuppFEbSLAKo9pFOiKGw4hAVPvdjrisAwrk9FsEk0sBTehAEgAAABqfVFxksXFEhjMlMPUrxf1ja7gibof1E49vZigAAAAAGp9UXGMd0yShWY5hpHV62i164o5tLbVxzVVshAAAAAAEFBwECAwQGBwAEAAMAAAAAAQ8AAABQcm9ncmFtIHVwZ3JhZGUEAAkDAQAAAAAAAAAEAAUCLbEAAA==",
+          {
+            "encoding": "base64",
+            "maxRetries": 0,
+            "skipPreflight": true,
+            "preflightCommitment": "processed"
+          }
+        ]
+      },
+      {
+        "method": "getSignatureStatuses",
+        "params": [
+          [
+            "2wp3SNfRijjsE4qjykg3SAx39jw6jxmDRmpSFgYWTckz12eE6Lr7LFBMfaUXjy4ztorphahnk3Fa95f7rrC8iwDz"
+          ]
+        ]
+      }
+    ]
+  },
+  "create vault transaction: new metadata account, needs extends": {
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "CdDrQeGgyyYXegMFtresrmBnJd5XisLoEAMZM56kVvkH",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3uWi9x2SRpmjztkpkr2WWeBoVq3exjXG2YfDWLvm8KsQ",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getMinimumBalanceForRentExemption",
+        "params": [25096]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "AKnL4NNf3DGWZJS6cPknBuEGnVsV4A4m5tgebLHaRSZ9",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "simulateTransaction",
+        "params": [
+          "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQADBupKbGPinFIKvvVQexMuxfmVR3auvr57kkIe6mkURtIsiojj3XQJ8ZX9UtstPLpdcspnCb8dlBIb83SIAbQPb1y0cVd3EUsj9i888609lQ24FEVgCOZ6/BL9y1WtJhAAJwMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABoHEzkfiI2i4sVVeyIevCS78fvu2bKP1L79o1Kyct6gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwMABQLAXBUABAUBAgAABc8EMPpOqNDi2tMAAAwCAAABAQUMx8mDKvL7CD+1MVDusIM/UCflYNO7nCZpYbqkFYP7Cu6st/84hLRZzX5GyC/u55xBZB0NlwOrynGubBglB/lbcigoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgo9+FWqzsAS6lURgsUPV8feVN70lUs+7LhJIVOPAdc/PUpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKepKbGPinFIKvvVQexMuxfmVR3auvr57kkIe6mkURtIsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF2xeewz6T+UvDIVcH5PsEdD7Jr6hKG6BvaHaL9mU4iSsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrAqj2kU6IobDiEBU+92OuKwDCuT0WwSTSwFN6EASAAAAGp9UXGSxcUSGMyUw9SvF/WNruCJuh/UTj29mKAAAAAAan1RcYx3TJKFZjmGkdXraLXrijm0ttXHNVWyEAAAAACAYCAAEMAAIAAACA0XYKAAAAAAcFAQACAwYRAAdpZGwAAAAAAAAAAAAAAAAABwQBAAIDAwAIACgHBAEAAgMDAAgAKAcEAQACAwMACKgRBwMBAAgFAAAAAAAABwUBAAIDBhUAAWlkbAAAAAAAAAAAAAAAAAABAgEACQcDAgQFCgsABAADAAAAAAEwAAAAUHJvZ3JhbSB1cGdyYWRlIHdpdGggcHJvZ3JhbS1tZXRhZGF0YSBJREwgdXBkYXRlAwAJA6CGAQAAAAAAAA==",
+          {
+            "replaceRecentBlockhash": true,
+            "sigVerify": false,
+            "commitment": "confirmed",
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "sendTransaction",
+        "params": [
+          "Adw4WFA7qTPCj2a6Be+QD7nu47U2wmzMzDuNz+lTDmzqMZg5TRBeA+AEzgC+YZOpq8L1D3NUGTHYmdRzVZlTtwoBAAMG6kpsY+KcUgq+9VB7Ey7F+ZVHdq6+vnuSQh7qaRRG0iyKiOPddAnxlf1S2y08ul1yymcJvx2UEhvzdIgBtA9vXLRxV3cRSyP2LzzzrT2VDbgURWAI5nr8Ev3LVa0mEAAnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBkZv5SEXMv/srbpyw5vnvIzlu8X3EmssQ5s6QAAAAAaBxM5H4iNouLFVXsiHrwku/H77tmyj9S+/aNSsnLeo4zLa+S+r7Oi2P/ekQAXl/f2a+hWHVrYcWpX5BLO40IEDBQUBAgAAA88EMPpOqNDi2tMAAAwCAAABAQUMx8mDKvL7CD+1MVDusIM/UCflYNO7nCZpYbqkFYP7Cu6st/84hLRZzX5GyC/u55xBZB0NlwOrynGubBglB/lbcigoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgo9+FWqzsAS6lURgsUPV8feVN70lUs+7LhJIVOPAdc/PUpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKepKbGPinFIKvvVQexMuxfmVR3auvr57kkIe6mkURtIsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF2xeewz6T+UvDIVcH5PsEdD7Jr6hKG6BvaHaL9mU4iSsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrAqj2kU6IobDiEBU+92OuKwDCuT0WwSTSwFN6EASAAAAGp9UXGSxcUSGMyUw9SvF/WNruCJuh/UTj29mKAAAAAAan1RcYx3TJKFZjmGkdXraLXrijm0ttXHNVWyEAAAAACAYCAAEMAAIAAACA0XYKAAAAAAcFAQACAwYRAAdpZGwAAAAAAAAAAAAAAAAABwQBAAIDAwAIACgHBAEAAgMDAAgAKAcEAQACAwMACKgRBwMBAAgFAAAAAAAABwUBAAIDBhUAAWlkbAAAAAAAAAAAAAAAAAABAgEACQcDAgQFCgsABAADAAAAAAEwAAAAUHJvZ3JhbSB1cGdyYWRlIHdpdGggcHJvZ3JhbS1tZXRhZGF0YSBJREwgdXBkYXRlBAAJA6CGAQAAAAAABAAFAi2xAAA=",
+          {
+            "encoding": "base64",
+            "maxRetries": 0,
+            "skipPreflight": true,
+            "preflightCommitment": "processed"
+          }
+        ]
+      },
+      {
+        "method": "getSignatureStatuses",
+        "params": [
+          [
+            "5QNNd1zaKdfwryGLdmHQkbK7UBK75RVj2QLFrZh8ubkZF3gT91be81TBFPr5FN1yXJutNgojoYnD2SiLyuVVVk2d"
+          ]
+        ]
+      }
+    ]
+  },
+  "export: PDA verification given as base58": {
+    "output": "2AV3TwhsH23jRoJPvbBG5cKXctJ9c2ersWRPMGm5hBbt7qxcFzqv5BTxKuv1h1YQAXoqhAZ7K8jhZJw7yddSsS324H4NtoyYT37DomVYNtthYtftxZt1BRfZCN8DDWdrYDU5RCY1wdh8q521MwriJagXtfKkneJk98wYvBhrJp7EM7R7RZUYsdw8dMcxRYN1cC9RkV1u4H25ijtY4QsCWrMRuMyYQJMQyeSK8k8dhNV1uCS8WWY9kSNzjw9YRmNectN4zRkUingozdKGoxqDsoHqzRN35HsjKXDG4voMiZyDiLBQYLZhzkeH5cXhbmESTttsEA324hLMUhu8tKC7krNgVBf9VpicNZkShByJfnyYgfDuGMyazvGqZVrEGvRK5gnCnAW1CyfCemo8iBMGij2PycoaHkLeUCynAjETASwW3qvD4HbpFMCEFTRj66CuMS5zaDRtpCzE1TfFbsWGNh9sWNhvZ3h6HETRo36iHRETAV65SfHeyzQgfYuk2vXzL6mBspdowRhBhxjuNcZBwrMTNVziLhH2d7pzz4uueuWAszrcKNSv3m6QNU2E32KxvWW5Kd4D6kvvTb7xyTKJdYF5hVYscuiq6UQVJ9VXnZMZg7DvfpFYVthhdL3xKE6jUb49RoXAocE6h64zygEBtfHNMEZgcdg9Ub63BHSmPhPQgeQrBdWkGAWBkHFXcrHJYuGsTSmHZqK4xGVEfsF4eMwLHpiJ626H4Dra6AAcfZLzDy1MT4eWoCP2EDD",
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      }
+    ]
+  },
+  "create vault transaction: send fails once, then succeeds": {
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "AKnL4NNf3DGWZJS6cPknBuEGnVsV4A4m5tgebLHaRSZ9",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "simulateTransaction",
+        "params": [
+          "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQADBupKbGPinFIKvvVQexMuxfmVR3auvr57kkIe6mkURtIsiojj3XQJ8ZX9UtstPLpdcspnCb8dlBIb83SIAbQPb1y0cVd3EUsj9i888609lQ24FEVgCOZ6/BL9y1WtJhAAJwMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABoHEzkfiI2i4sVVeyIevCS78fvu2bKP1L79o1Kyct6gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwMABQLAXBUABAUBAgAABbcCMPpOqNDi2tMAABUBAAABAQQIx8mDKvL7CD+1MVDusIM/UCflYNO7nCZpYbqkFYP7Cu734VarOwBLqVRGCxQ9Xx95U3vSVSz7suEkhU48B1z89SgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSnqSmxj4pxSCr71UHsTLsX5lUd2rr6+e5JCHuppFEbSLAKo9pFOiKGw4hAVPvdjrisAwrk9FsEk0sBTehAEgAAABqfVFxksXFEhjMlMPUrxf1ja7gibof1E49vZigAAAAAGp9UXGMd0yShWY5hpHV62i164o5tLbVxzVVshAAAAAAEFBwECAwQGBwAEAAMAAAAAAQ8AAABQcm9ncmFtIHVwZ3JhZGUDAAkDoIYBAAAAAAAA",
+          {
+            "replaceRecentBlockhash": true,
+            "sigVerify": false,
+            "commitment": "confirmed",
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "sendTransaction",
+        "params": [
+          "AaUtMCRQbmBr59rTWXuTRqCR1x8WcNseZhwAShWFjo9ouU+iQNCdcK3KXzgMKuOzjIRjaV70dMO42kkwpJ30BAkBAAMG6kpsY+KcUgq+9VB7Ey7F+ZVHdq6+vnuSQh7qaRRG0iyKiOPddAnxlf1S2y08ul1yymcJvx2UEhvzdIgBtA9vXLRxV3cRSyP2LzzzrT2VDbgURWAI5nr8Ev3LVa0mEAAnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBkZv5SEXMv/srbpyw5vnvIzlu8X3EmssQ5s6QAAAAAaBxM5H4iNouLFVXsiHrwku/H77tmyj9S+/aNSsnLeo4zLa+S+r7Oi2P/ekQAXl/f2a+hWHVrYcWpX5BLO40IEDBQUBAgAAA7cCMPpOqNDi2tMAABUBAAABAQQIx8mDKvL7CD+1MVDusIM/UCflYNO7nCZpYbqkFYP7Cu734VarOwBLqVRGCxQ9Xx95U3vSVSz7suEkhU48B1z89SgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSnqSmxj4pxSCr71UHsTLsX5lUd2rr6+e5JCHuppFEbSLAKo9pFOiKGw4hAVPvdjrisAwrk9FsEk0sBTehAEgAAABqfVFxksXFEhjMlMPUrxf1ja7gibof1E49vZigAAAAAGp9UXGMd0yShWY5hpHV62i164o5tLbVxzVVshAAAAAAEFBwECAwQGBwAEAAMAAAAAAQ8AAABQcm9ncmFtIHVwZ3JhZGUEAAkDoIYBAAAAAAAEAAUCLbEAAA==",
+          {
+            "encoding": "base64",
+            "maxRetries": 0,
+            "skipPreflight": true,
+            "preflightCommitment": "processed"
+          }
+        ]
+      },
+      {
+        "method": "sendTransaction",
+        "params": [
+          "AaUtMCRQbmBr59rTWXuTRqCR1x8WcNseZhwAShWFjo9ouU+iQNCdcK3KXzgMKuOzjIRjaV70dMO42kkwpJ30BAkBAAMG6kpsY+KcUgq+9VB7Ey7F+ZVHdq6+vnuSQh7qaRRG0iyKiOPddAnxlf1S2y08ul1yymcJvx2UEhvzdIgBtA9vXLRxV3cRSyP2LzzzrT2VDbgURWAI5nr8Ev3LVa0mEAAnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBkZv5SEXMv/srbpyw5vnvIzlu8X3EmssQ5s6QAAAAAaBxM5H4iNouLFVXsiHrwku/H77tmyj9S+/aNSsnLeo4zLa+S+r7Oi2P/ekQAXl/f2a+hWHVrYcWpX5BLO40IEDBQUBAgAAA7cCMPpOqNDi2tMAABUBAAABAQQIx8mDKvL7CD+1MVDusIM/UCflYNO7nCZpYbqkFYP7Cu734VarOwBLqVRGCxQ9Xx95U3vSVSz7suEkhU48B1z89SgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSnqSmxj4pxSCr71UHsTLsX5lUd2rr6+e5JCHuppFEbSLAKo9pFOiKGw4hAVPvdjrisAwrk9FsEk0sBTehAEgAAABqfVFxksXFEhjMlMPUrxf1ja7gibof1E49vZigAAAAAGp9UXGMd0yShWY5hpHV62i164o5tLbVxzVVshAAAAAAEFBwECAwQGBwAEAAMAAAAAAQ8AAABQcm9ncmFtIHVwZ3JhZGUEAAkDoIYBAAAAAAAEAAUCLbEAAA==",
+          {
+            "encoding": "base64",
+            "maxRetries": 0,
+            "skipPreflight": true,
+            "preflightCommitment": "processed"
+          }
+        ]
+      },
+      {
+        "method": "getSignatureStatuses",
+        "params": [
+          [
+            "4JYJMTAkaywknWJaJzsRkEYjAGRdW5tT2qjjwZcAcLEAx58BXXdab7SiseNA1KUDTBX8pW2rcTRZuFxG4x7cwTpU"
+          ]
+        ]
+      }
+    ]
+  },
+  "create vault transaction: confirmed after 3 polls": {
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "AKnL4NNf3DGWZJS6cPknBuEGnVsV4A4m5tgebLHaRSZ9",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "simulateTransaction",
+        "params": [
+          "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQADBupKbGPinFIKvvVQexMuxfmVR3auvr57kkIe6mkURtIsiojj3XQJ8ZX9UtstPLpdcspnCb8dlBIb83SIAbQPb1y0cVd3EUsj9i888609lQ24FEVgCOZ6/BL9y1WtJhAAJwMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABoHEzkfiI2i4sVVeyIevCS78fvu2bKP1L79o1Kyct6gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwMABQLAXBUABAUBAgAABbcCMPpOqNDi2tMAABUBAAABAQQIx8mDKvL7CD+1MVDusIM/UCflYNO7nCZpYbqkFYP7Cu734VarOwBLqVRGCxQ9Xx95U3vSVSz7suEkhU48B1z89SgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSnqSmxj4pxSCr71UHsTLsX5lUd2rr6+e5JCHuppFEbSLAKo9pFOiKGw4hAVPvdjrisAwrk9FsEk0sBTehAEgAAABqfVFxksXFEhjMlMPUrxf1ja7gibof1E49vZigAAAAAGp9UXGMd0yShWY5hpHV62i164o5tLbVxzVVshAAAAAAEFBwECAwQGBwAEAAMAAAAAAQ8AAABQcm9ncmFtIHVwZ3JhZGUDAAkDoIYBAAAAAAAA",
+          {
+            "replaceRecentBlockhash": true,
+            "sigVerify": false,
+            "commitment": "confirmed",
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "sendTransaction",
+        "params": [
+          "AaUtMCRQbmBr59rTWXuTRqCR1x8WcNseZhwAShWFjo9ouU+iQNCdcK3KXzgMKuOzjIRjaV70dMO42kkwpJ30BAkBAAMG6kpsY+KcUgq+9VB7Ey7F+ZVHdq6+vnuSQh7qaRRG0iyKiOPddAnxlf1S2y08ul1yymcJvx2UEhvzdIgBtA9vXLRxV3cRSyP2LzzzrT2VDbgURWAI5nr8Ev3LVa0mEAAnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBkZv5SEXMv/srbpyw5vnvIzlu8X3EmssQ5s6QAAAAAaBxM5H4iNouLFVXsiHrwku/H77tmyj9S+/aNSsnLeo4zLa+S+r7Oi2P/ekQAXl/f2a+hWHVrYcWpX5BLO40IEDBQUBAgAAA7cCMPpOqNDi2tMAABUBAAABAQQIx8mDKvL7CD+1MVDusIM/UCflYNO7nCZpYbqkFYP7Cu734VarOwBLqVRGCxQ9Xx95U3vSVSz7suEkhU48B1z89SgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSnqSmxj4pxSCr71UHsTLsX5lUd2rr6+e5JCHuppFEbSLAKo9pFOiKGw4hAVPvdjrisAwrk9FsEk0sBTehAEgAAABqfVFxksXFEhjMlMPUrxf1ja7gibof1E49vZigAAAAAGp9UXGMd0yShWY5hpHV62i164o5tLbVxzVVshAAAAAAEFBwECAwQGBwAEAAMAAAAAAQ8AAABQcm9ncmFtIHVwZ3JhZGUEAAkDoIYBAAAAAAAEAAUCLbEAAA==",
+          {
+            "encoding": "base64",
+            "maxRetries": 0,
+            "skipPreflight": true,
+            "preflightCommitment": "processed"
+          }
+        ]
+      },
+      {
+        "method": "getSignatureStatuses",
+        "params": [
+          [
+            "4JYJMTAkaywknWJaJzsRkEYjAGRdW5tT2qjjwZcAcLEAx58BXXdab7SiseNA1KUDTBX8pW2rcTRZuFxG4x7cwTpU"
+          ]
+        ]
+      },
+      {
+        "method": "getSignatureStatuses",
+        "params": [
+          [
+            "4JYJMTAkaywknWJaJzsRkEYjAGRdW5tT2qjjwZcAcLEAx58BXXdab7SiseNA1KUDTBX8pW2rcTRZuFxG4x7cwTpU"
+          ]
+        ]
+      },
+      {
+        "method": "getSignatureStatuses",
+        "params": [
+          [
+            "4JYJMTAkaywknWJaJzsRkEYjAGRdW5tT2qjjwZcAcLEAx58BXXdab7SiseNA1KUDTBX8pW2rcTRZuFxG4x7cwTpU"
+          ]
+        ]
+      },
+      {
+        "method": "getSignatureStatuses",
+        "params": [
+          [
+            "4JYJMTAkaywknWJaJzsRkEYjAGRdW5tT2qjjwZcAcLEAx58BXXdab7SiseNA1KUDTBX8pW2rcTRZuFxG4x7cwTpU"
+          ]
+        ]
+      }
+    ]
+  },
+  "create vault transaction: not confirmed in time, sent again": {
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "AKnL4NNf3DGWZJS6cPknBuEGnVsV4A4m5tgebLHaRSZ9",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "simulateTransaction",
+        "params": [
+          "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQADBupKbGPinFIKvvVQexMuxfmVR3auvr57kkIe6mkURtIsiojj3XQJ8ZX9UtstPLpdcspnCb8dlBIb83SIAbQPb1y0cVd3EUsj9i888609lQ24FEVgCOZ6/BL9y1WtJhAAJwMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABoHEzkfiI2i4sVVeyIevCS78fvu2bKP1L79o1Kyct6gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwMABQLAXBUABAUBAgAABbcCMPpOqNDi2tMAABUBAAABAQQIx8mDKvL7CD+1MVDusIM/UCflYNO7nCZpYbqkFYP7Cu734VarOwBLqVRGCxQ9Xx95U3vSVSz7suEkhU48B1z89SgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSnqSmxj4pxSCr71UHsTLsX5lUd2rr6+e5JCHuppFEbSLAKo9pFOiKGw4hAVPvdjrisAwrk9FsEk0sBTehAEgAAABqfVFxksXFEhjMlMPUrxf1ja7gibof1E49vZigAAAAAGp9UXGMd0yShWY5hpHV62i164o5tLbVxzVVshAAAAAAEFBwECAwQGBwAEAAMAAAAAAQ8AAABQcm9ncmFtIHVwZ3JhZGUDAAkDoIYBAAAAAAAA",
+          {
+            "replaceRecentBlockhash": true,
+            "sigVerify": false,
+            "commitment": "confirmed",
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "sendTransaction",
+        "params": [
+          "AaUtMCRQbmBr59rTWXuTRqCR1x8WcNseZhwAShWFjo9ouU+iQNCdcK3KXzgMKuOzjIRjaV70dMO42kkwpJ30BAkBAAMG6kpsY+KcUgq+9VB7Ey7F+ZVHdq6+vnuSQh7qaRRG0iyKiOPddAnxlf1S2y08ul1yymcJvx2UEhvzdIgBtA9vXLRxV3cRSyP2LzzzrT2VDbgURWAI5nr8Ev3LVa0mEAAnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBkZv5SEXMv/srbpyw5vnvIzlu8X3EmssQ5s6QAAAAAaBxM5H4iNouLFVXsiHrwku/H77tmyj9S+/aNSsnLeo4zLa+S+r7Oi2P/ekQAXl/f2a+hWHVrYcWpX5BLO40IEDBQUBAgAAA7cCMPpOqNDi2tMAABUBAAABAQQIx8mDKvL7CD+1MVDusIM/UCflYNO7nCZpYbqkFYP7Cu734VarOwBLqVRGCxQ9Xx95U3vSVSz7suEkhU48B1z89SgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSnqSmxj4pxSCr71UHsTLsX5lUd2rr6+e5JCHuppFEbSLAKo9pFOiKGw4hAVPvdjrisAwrk9FsEk0sBTehAEgAAABqfVFxksXFEhjMlMPUrxf1ja7gibof1E49vZigAAAAAGp9UXGMd0yShWY5hpHV62i164o5tLbVxzVVshAAAAAAEFBwECAwQGBwAEAAMAAAAAAQ8AAABQcm9ncmFtIHVwZ3JhZGUEAAkDoIYBAAAAAAAEAAUCLbEAAA==",
+          {
+            "encoding": "base64",
+            "maxRetries": 0,
+            "skipPreflight": true,
+            "preflightCommitment": "processed"
+          }
+        ]
+      },
+      {
+        "method": "getSignatureStatuses",
+        "params": [
+          [
+            "4JYJMTAkaywknWJaJzsRkEYjAGRdW5tT2qjjwZcAcLEAx58BXXdab7SiseNA1KUDTBX8pW2rcTRZuFxG4x7cwTpU"
+          ]
+        ]
+      },
+      {
+        "method": "getSignatureStatuses",
+        "params": [
+          [
+            "4JYJMTAkaywknWJaJzsRkEYjAGRdW5tT2qjjwZcAcLEAx58BXXdab7SiseNA1KUDTBX8pW2rcTRZuFxG4x7cwTpU"
+          ]
+        ]
+      },
+      {
+        "method": "getSignatureStatuses",
+        "params": [
+          [
+            "4JYJMTAkaywknWJaJzsRkEYjAGRdW5tT2qjjwZcAcLEAx58BXXdab7SiseNA1KUDTBX8pW2rcTRZuFxG4x7cwTpU"
+          ]
+        ]
+      },
+      {
+        "method": "getSignatureStatuses",
+        "params": [
+          [
+            "4JYJMTAkaywknWJaJzsRkEYjAGRdW5tT2qjjwZcAcLEAx58BXXdab7SiseNA1KUDTBX8pW2rcTRZuFxG4x7cwTpU"
+          ]
+        ]
+      },
+      {
+        "method": "sendTransaction",
+        "params": [
+          "AaUtMCRQbmBr59rTWXuTRqCR1x8WcNseZhwAShWFjo9ouU+iQNCdcK3KXzgMKuOzjIRjaV70dMO42kkwpJ30BAkBAAMG6kpsY+KcUgq+9VB7Ey7F+ZVHdq6+vnuSQh7qaRRG0iyKiOPddAnxlf1S2y08ul1yymcJvx2UEhvzdIgBtA9vXLRxV3cRSyP2LzzzrT2VDbgURWAI5nr8Ev3LVa0mEAAnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBkZv5SEXMv/srbpyw5vnvIzlu8X3EmssQ5s6QAAAAAaBxM5H4iNouLFVXsiHrwku/H77tmyj9S+/aNSsnLeo4zLa+S+r7Oi2P/ekQAXl/f2a+hWHVrYcWpX5BLO40IEDBQUBAgAAA7cCMPpOqNDi2tMAABUBAAABAQQIx8mDKvL7CD+1MVDusIM/UCflYNO7nCZpYbqkFYP7Cu734VarOwBLqVRGCxQ9Xx95U3vSVSz7suEkhU48B1z89SgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSnqSmxj4pxSCr71UHsTLsX5lUd2rr6+e5JCHuppFEbSLAKo9pFOiKGw4hAVPvdjrisAwrk9FsEk0sBTehAEgAAABqfVFxksXFEhjMlMPUrxf1ja7gibof1E49vZigAAAAAGp9UXGMd0yShWY5hpHV62i164o5tLbVxzVVshAAAAAAEFBwECAwQGBwAEAAMAAAAAAQ8AAABQcm9ncmFtIHVwZ3JhZGUEAAkDoIYBAAAAAAAEAAUCLbEAAA==",
+          {
+            "encoding": "base64",
+            "maxRetries": 0,
+            "skipPreflight": true,
+            "preflightCommitment": "processed"
+          }
+        ]
+      },
+      {
+        "method": "getSignatureStatuses",
+        "params": [
+          [
+            "4JYJMTAkaywknWJaJzsRkEYjAGRdW5tT2qjjwZcAcLEAx58BXXdab7SiseNA1KUDTBX8pW2rcTRZuFxG4x7cwTpU"
+          ]
+        ]
+      },
+      {
+        "method": "getSignatureStatuses",
+        "params": [
+          [
+            "4JYJMTAkaywknWJaJzsRkEYjAGRdW5tT2qjjwZcAcLEAx58BXXdab7SiseNA1KUDTBX8pW2rcTRZuFxG4x7cwTpU"
+          ]
+        ]
+      }
+    ]
+  },
+  "error: simulation fails": {
+    "error": "process.exit(1)",
+    "errorLog": [
+      "\n=== Error ===",
+      "Error details: Transaction simulation failed:\n  •Program log: injected failure\n  • Program failed{\"InstructionError\":[1,{\"Custom\":6001}]}"
+    ],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "AKnL4NNf3DGWZJS6cPknBuEGnVsV4A4m5tgebLHaRSZ9",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "simulateTransaction",
+        "params": [
+          "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQADBupKbGPinFIKvvVQexMuxfmVR3auvr57kkIe6mkURtIsiojj3XQJ8ZX9UtstPLpdcspnCb8dlBIb83SIAbQPb1y0cVd3EUsj9i888609lQ24FEVgCOZ6/BL9y1WtJhAAJwMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABoHEzkfiI2i4sVVeyIevCS78fvu2bKP1L79o1Kyct6gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwMABQLAXBUABAUBAgAABbcCMPpOqNDi2tMAABUBAAABAQQIx8mDKvL7CD+1MVDusIM/UCflYNO7nCZpYbqkFYP7Cu734VarOwBLqVRGCxQ9Xx95U3vSVSz7suEkhU48B1z89SgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSnqSmxj4pxSCr71UHsTLsX5lUd2rr6+e5JCHuppFEbSLAKo9pFOiKGw4hAVPvdjrisAwrk9FsEk0sBTehAEgAAABqfVFxksXFEhjMlMPUrxf1ja7gibof1E49vZigAAAAAGp9UXGMd0yShWY5hpHV62i164o5tLbVxzVVshAAAAAAEFBwECAwQGBwAEAAMAAAAAAQ8AAABQcm9ncmFtIHVwZ3JhZGUDAAkDoIYBAAAAAAAA",
+          {
+            "replaceRecentBlockhash": true,
+            "sigVerify": false,
+            "commitment": "confirmed",
+            "encoding": "base64"
+          }
+        ]
+      }
+    ]
+  },
+  "export: program account fetch fails twice, then succeeds": {
+    "output": "FY859QCZourbHri6TpbQ7MiHmsC5bwh9uYwwqJAcq5kB3uziDUtodGrTPm2kyru8VzVhpnX33v1SN5FxkQNL9jkKi4ku72A1hUzca6rQNakiyRnoV3GS4ozZmp2E14xxfu3HAL4ceUdRdKfuVTWLN24Nw7UJPKDnmKnpdwvPo1RhmR7DfyZ7h4F66C5yVNqbHAqaPc47urYGpjYWER4pJvkuusUNoR1knMvcHUjUA3r8KX5cCQa8d77Ga5S6s1qwD7go3v8p1nERg9fAZXkMob1xhHP9BhYQQDWT4YTiGsHMaRYxBFYn2SkQmPRzhqSRwvXxjgxUejhLgzqt2fHkWQ63uzRxdPRexkCExNxxvEXGZB4obVTRU8Pp2gwhd3uQobcCPc6Sx5kndaVL7kdSGQpPAEjK8DSRm3W6vCdNLtFVnX5ADTPUE5cbz2RiRfi2bb9nwLbh9ge1HYNde3LE6r7fNVQmGxpBYMhJNYxeoQm3KENY7jhCTCDBc9M",
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      }
+    ]
+  },
+  "error: program account fetch keeps failing": {
+    "error": "Failed to get account info for 3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH after 5 attempts: Error: failed to get info about account 3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH: SolanaJSONRPCError: failed to get info about account 3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH: Injected failure #5 for getAccountInfo",
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      }
+    ]
+  },
+  "error: program account missing": {
+    "error": "Could not fetch program or buffer account",
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      }
+    ]
+  },
+  "error: metadata buffer account missing": {
+    "error": "Metadata buffer account 3uWi9x2SRpmjztkpkr2WWeBoVq3exjXG2YfDWLvm8KsQ not found. Make sure the buffer was created and is on the correct cluster.",
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "CdDrQeGgyyYXegMFtresrmBnJd5XisLoEAMZM56kVvkH",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3uWi9x2SRpmjztkpkr2WWeBoVq3exjXG2YfDWLvm8KsQ",
+          {
+            "encoding": "base64",
+            "commitment": "confirmed"
+          }
+        ]
+      }
+    ]
+  },
+  "error: multisig account missing": {
+    "error": "Unable to find Multisig account at 6Ckm2BrnXxsSjyG5b17kQQRjoECVrts92RKXVGT8XeqS",
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getLatestBlockhash",
+        "params": []
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "6Ckm2BrnXxsSjyG5b17kQQRjoECVrts92RKXVGT8XeqS",
+          {
+            "encoding": "base64"
+          }
+        ]
+      }
+    ]
+  },
+  "error: invalid keypair": {
+    "error": "bad secret key size",
+    "errorLog": [],
+    "requests": []
+  },
+  "error: invalid program address": {
+    "error": "Non-base58 character",
+    "errorLog": [],
+    "requests": []
+  },
+  "error: invalid PDA verification transaction": {
+    "error": "Unable to decode PDA verification transaction as base64 or base58. Base64 error: Reached end of buffer unexpectedly. Base58 error: Non-base58 character.",
+    "errorLog": [],
+    "requests": [
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3hkpj3dQevt4ad1JSx3ke1sWmMR3wYToMKfFLCnxtKuH",
+          {
+            "encoding": "base64"
+          }
+        ]
+      },
+      {
+        "method": "getAccountInfo",
+        "params": [
+          "3mg7sM6RFEBHiiFotFNfvteH1WdFcc9cujKuPaqZdfDz",
+          {
+            "encoding": "base64"
+          }
+        ]
+      }
+    ]
+  }
+}
